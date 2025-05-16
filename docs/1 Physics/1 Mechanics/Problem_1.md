@@ -8,11 +8,11 @@ Projectile motion describes the motion of an object under the influence of gravi
 We start with Newton's Second Law:
 <p>$$ F = m \\a $$</p>
 
-For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:<br />
+For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:
 - Horizontal: constant velocity motion
 - Vertical: uniformly accelerated motion
 
-Let:<br />
+Let:
 - 𝑣𝜃: initial speed
 - 𝜃: angle of projection
 - 𝑔: acceleration due to gravity
