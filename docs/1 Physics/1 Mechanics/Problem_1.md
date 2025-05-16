@@ -16,3 +16,20 @@ Let:<br />
 <li>𝑔: acceleration due to gravity</li></ul>
 <b>Horizontal motion:</b><br />
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
+<b>Vertical motion:</b><br />
+<p>$$ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+## Time of Flight
+The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:<br />
+<p>$$ 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+Simplifying this, we get:<br />
+<p>$$ t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0 $$</p>
+Ignoring the <b>𝑡=<i>0</i></b> solution:<br />
+<p>$$ t = \frac{2v_0 \sin(\theta)}{g} $$</p>
+<b>Range of the Projectile</b><br />
+Substitute time of flight into the horizontal motion equation:<br />
+<p>$$ R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{g}{2v_0 \sin(\theta)} $$</p>
+Simplifying, we get the final form of the range equation:<br />
+<p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
+## Analysis of the Range
+<b>Influence of Angle</b><br />
+<p>As shown by the formula <span id="arithmatex">$ R = \frac{v_0^2 \sin(2\theta)}{g} $</span> the range follows a sine curve with respect to <i>2</i>𝜃, peaking at 45∘.Beyond this, the range decreases symmetrically.</p>
