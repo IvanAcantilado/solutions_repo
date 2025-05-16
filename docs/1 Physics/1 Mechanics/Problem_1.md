@@ -7,17 +7,21 @@ Projectile motion describes the motion of an object under the influence of gravi
 <b>Equations of Motion:</b><br />
 We start with Newton's Second Law:
 <p>$$ F = m \\a $$</p>
+
 For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:<br />
-<ul><li>Horizontal: constant velocity motion</li>
-<li>Vertical: uniformly accelerated motion</li></ul>
+-Horizontal: constant velocity motion
+-Vertical: uniformly accelerated motion
+
 Let:<br />
-<ul><li>𝑣𝜃: initial speed</li>
-<li>𝜃: angle of projection</li>
-<li>𝑔: acceleration due to gravity</li></ul>
+-𝑣𝜃: initial speed
+-𝜃: angle of projection
+-𝑔: acceleration due to gravity
+
 <b>Horizontal motion:</b><br />
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
 <b>Vertical motion:</b><br />
 <p>$$ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+
 ## Time of Flight
 The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:<br />
 <p>$$ 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
@@ -32,4 +36,4 @@ Simplifying, we get the final form of the range equation:<br />
 <p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
 ## Analysis of the Range
 <b>Influence of Angle</b><br />
-<p>As shown by the formula <span class="arithmatex">$R = \frac{v_0^2 \sin(2\theta)}{g}$</span>, the range follows a sine curve with respect to <span class="arithmatex">$2\theta$</span>, peaking at <span class="arithmatex">$45^\circ$</span>.</p>
+As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$.Beyond this, the range decreases symmetrically.
