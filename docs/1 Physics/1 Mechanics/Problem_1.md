@@ -32,4 +32,4 @@ Simplifying, we get the final form of the range equation:<br />
 <p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
 ## Analysis of the Range
 <b>Influence of Angle</b><br />
-<p>As shown by the formula <span class="arithmatex">$R = \frac{v_0^2 \sin(2\theta)}{g}$</span> the range follows a sine curve with respect to <i>2</i>𝜃, peaking at 45∘.Beyond this, the range decreases symmetrically.</p>
+<p>As shown by the formula <span class="arithmatex">$R = \frac{v_0^2 \sin(2\theta)}{g}$</span> the range follows a sine curve with respect to <i>2</i>𝜃, peaking at <span class="arithmatex">45∘</span>.Beyond this, the range decreases symmetrically.</p>
