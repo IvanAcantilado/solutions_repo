@@ -5,6 +5,7 @@ This investigation examines how the range of a projectile is affected by the ang
 Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed 𝑣𝜃, angle of projection 𝜃, and gravitational acceleration 𝑔.
 
 <b>Equations of Motion:</b>
+
 We start with Newton's Second Law:
 <p>$$ F = m \\a $$</p>
 
