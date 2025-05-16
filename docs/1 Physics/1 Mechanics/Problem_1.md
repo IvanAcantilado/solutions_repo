@@ -29,7 +29,7 @@ Ignoring the <b>𝑡=<i>0</i></b> solution:<br />
 Substitute time of flight into the horizontal motion equation:<br />
 <p>$$ R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{g}{2v_0 \sin(\theta)} $$</p>
 Simplifying, we get the final form of the range equation:<br />
-$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$
+<p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
 ## Analysis of the Range
 <b>Influence of Angle</b><br />
-As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$.
+<p>As shown by the formula $ R = \frac{v_0^2 \sin(2\theta)}{g} $, the range follows a sine curve with respect to $2\theta$, peaking at $ 45^\circ $.</p>
