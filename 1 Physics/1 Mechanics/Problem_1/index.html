@@ -50,6 +50,10 @@
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#time-of-flight">Time of Flight</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-of-the-range">Analysis of the Range</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -189,6 +193,23 @@ We start with Newton's Second Law:</p>
 <li>𝑔: acceleration due to gravity</li></ul>
 <p><b>Horizontal motion:</b><br/></p>
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
+<p><b>Vertical motion:</b><br/></p>
+<p>$$ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+<h2 id="time-of-flight">Time of Flight</h2>
+<p>The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:<br/></p>
+<p>$$ 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+<p>Simplifying this, we get:<br/></p>
+<p>$$ t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0 $$</p>
+<p>Ignoring the <b>𝑡=<i>0</i></b> solution:<br/></p>
+<p>$$ t = \frac{2v_0 \sin(\theta)}{g} $$</p>
+<p><b>Range of the Projectile</b><br/>
+Substitute time of flight into the horizontal motion equation:<br/></p>
+<p>$$ R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{g}{2v_0 \sin(\theta)} $$</p>
+<p>Simplifying, we get the final form of the range equation:<br/></p>
+<p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
+<h2 id="analysis-of-the-range">Analysis of the Range</h2>
+<p><b>Influence of Angle</b><br/></p>
+<p>As shown by the formula <span id="arithmatex">$ R = \frac{v_0^2 \sin(2\theta)}{g} $</span> the range follows a sine curve with respect to <i>2</i>𝜃, peaking at 45∘.Beyond this, the range decreases symmetrically.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
