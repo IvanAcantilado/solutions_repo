@@ -14,3 +14,5 @@ Let:<br />
 <ul><li>𝑣𝜃: initial speed</li>
 <li>𝜃: angle of projection</li>
 <li>𝑔: acceleration due to gravity</li></ul>
+<b>Horizontal motion:</b><br />
+<p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
