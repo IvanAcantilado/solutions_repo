@@ -18,23 +18,24 @@ Let:
 - 𝜃: angle of projection
 - 𝑔: acceleration due to gravity
 
-<b>Horizontal motion:</b><br />
+<b>Horizontal motion:</b>
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
-<b>Vertical motion:</b><br />
+<b>Vertical motion:</b>
 <p>$$ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
 
 ## Time of Flight
-The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:<br />
+The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:
 <p>$$ 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
-Simplifying this, we get:<br />
+Simplifying this, we get:
 <p>$$ t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0 $$</p>
-Ignoring the <b>𝑡=<i>0</i></b> solution:<br />
+Ignoring the <b>𝑡=<i>0</i></b> solution:
 <p>$$ t = \frac{2v_0 \sin(\theta)}{g} $$</p>
 <b>Range of the Projectile</b><br />
-Substitute time of flight into the horizontal motion equation:<br />
+Substitute time of flight into the horizontal motion equation:
 <p>$$ R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{g}{2v_0 \sin(\theta)} $$</p>
-Simplifying, we get the final form of the range equation:<br />
+Simplifying, we get the final form of the range equation:
 <p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
 ## Analysis of the Range
-<b>Influence of Angle</b><br />
+<b>Influence of Angle</b>
+
 As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$.Beyond this, the range decreases symmetrically.
