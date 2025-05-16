@@ -9,3 +9,8 @@ We start with Newton's Second Law:
 <p>
 $$ F = m \\a $$
 </p>
+For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:<br />
+<ul>
+<li>Horizontal: constant velocity motion</li>
+<li>Vertical: uniformly accelerated motion</li>
+</ul>
