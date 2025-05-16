@@ -9,13 +9,13 @@ We start with Newton's Second Law:
 <p>$$ F = m \\a $$</p>
 
 For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:<br />
--Horizontal: constant velocity motion
--Vertical: uniformly accelerated motion
+- Horizontal: constant velocity motion
+- Vertical: uniformly accelerated motion
 
 Let:<br />
--𝑣𝜃: initial speed
--𝜃: angle of projection
--𝑔: acceleration due to gravity
+- 𝑣𝜃: initial speed
+- 𝜃: angle of projection
+- 𝑔: acceleration due to gravity
 
 <b>Horizontal motion:</b><br />
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
