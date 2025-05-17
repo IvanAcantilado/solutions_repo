@@ -75,7 +75,7 @@ plt.axvline(45, color='r', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.show()
 </code></pre>
-![image](https://github.com/user-attachments/assets/dbb7d00f-973d-49d5-8e31-54a1622f1c24)
+![image](https://github.com/user-attachments/assets/dbb7d00f-973d-49d5-8e31-54a1622f1c24)<br />
 <i>Running the above script will generate a graph showing the horizontal range as a function of the angle of projection for a given initial velocity. The curve will demonstrate that the range is maximized at 45∘</i>
 
 ## Conclusion
