@@ -67,7 +67,6 @@ $$
 ## Analysis of the Range
 
 **Influence of Angle**
-
 As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$. Beyond this, the range decreases symmetrically.
 
 **Influence of Initial Velocity**  
