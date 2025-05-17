@@ -36,7 +36,7 @@ $$
 *From Earth’s orbital radius and Sun’s mass:*
 
 $$
-v_3 \approx \sqrt{\frac{2GM_\odot}{R_{\text{orbit}}}
+v_3 \approx \sqrt{\frac{2GM_\odot}{R_{\text{orbit}}}}
 $$
 
 *Or, estimated from Earth’s escape speed plus solar influence:*
