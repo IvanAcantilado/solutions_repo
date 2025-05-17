@@ -197,6 +197,30 @@ The equation of motion for a forced damped pendulum is given by:</p>
 <li><strong>A</strong> is the amplitude of the external driving force.  </li>
 <li><strong>ω</strong> is the driving frequency.</li>
 </ul>
+<p><strong>Apply Newton’s Second Law</strong></p>
+<div class="arithmatex">\[
+\tau_{\text{net}} = I \ddot{\theta}
+\]</div>
+<p>Where <span class="arithmatex">\(I = mL^2\)</span>. So:</p>
+<div class="arithmatex">\[
+- mgL \sin(\theta) - \gamma \dot{\theta} + A \cos(\omega t) = mL^2 \ddot{\theta}
+\]</div>
+<hr/>
+<p><strong>Divide both sides by <span class="arithmatex">\(mL^2\)</span>:</strong></p>
+<div class="arithmatex">\[
+\ddot{\theta} + \frac{\gamma}{mL^2} \dot{\theta} + \frac{g}{L} \sin(\theta) = \frac{A}{mL^2} \cos(\omega t)
+\]</div>
+<hr/>
+<p>Let:</p>
+<div class="arithmatex">\[
+\gamma = \frac{\gamma}{mL^2} \quad \text{(effective damping constant)}
+\]</div>
+<div class="arithmatex">\[
+A = \frac{A}{mL^2} \quad \text{(effective driving amplitude)}
+\]</div>
+<hr/>
+<p>Giving us the final equation</p>
+<p>This describes a <strong>damped, driven pendulum</strong>.</p>
 <p><strong>Resonance and Energy Implications</strong></p>
 <ul>
 <li><strong>Resonance</strong> occurs when the driving frequency ω matches the natural frequency ω₀ of the system, causing the amplitude of oscillation to increase significantly.</li>
