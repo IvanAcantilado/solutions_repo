@@ -186,38 +186,44 @@
 <h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
 <p>This investigation examines how the range of a projectile is affected by the angle at which it is launched. By varying the angle of projection and measuring the resulting horizontal distance, we aim to identify patterns in the data and determine the angle that produces the maximum range.</p>
 <h2 id="theoretical-foundation">Theoretical Foundation</h2>
-<p>Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed <span class="arithmatex">\( v_0 \)</span>, angle of projection <span class="arithmatex">\( \theta \)</span>, and gravitational acceleration <span class="arithmatex">\( g \)</span>.</p>
+<p>Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed <span class="arithmatex">\(v_0\)</span>, angle of projection <span class="arithmatex">\(theta\)</span>, and gravitational acceleration <span class="arithmatex">\(g\)</span>.</p>
 <p><strong>Equations of Motion:</strong></p>
 <p>We start with Newton's Second Law:<br/>
-[ F = m a ]</p>
-<p>For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:
-- <strong>Horizontal:</strong> constant velocity motion<br/>
-- <strong>Vertical:</strong> uniformly accelerated motion</p>
-<p>Let:
-- <span class="arithmatex">\( v_0 \)</span>: initial speed<br/>
-- <span class="arithmatex">\( \theta \)</span>: angle of projection<br/>
-- <span class="arithmatex">\( g \)</span>: acceleration due to gravity  </p>
+$$ F = m a $$</p>
+<p>For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:</p>
+<ul>
+<li><strong>Horizontal:</strong> constant velocity motion  </li>
+<li><strong>Vertical:</strong> uniformly accelerated motion</li>
+</ul>
+<p>Let:<br/>
+- <span class="arithmatex">\(v_0\)</span>: initial speed<br/>
+- <span class="arithmatex">\(\theta\)</span>: angle of projection<br/>
+- <span class="arithmatex">\(g\)</span>: acceleration due to gravity  </p>
 <p><strong>Horizontal motion:</strong><br/>
-[ x(t) = v_0 \cdot \cos(\theta) \cdot t ]</p>
+$$
+x(t) = v_0 \cdot \cos(\theta) \cdot t
+$$</p>
 <p><strong>Vertical motion:</strong><br/>
-[ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 ]</p>
+$$
+y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
+$$</p>
 <h2 id="time-of-flight">Time of Flight</h2>
-<p>The projectile lands when <span class="arithmatex">\( y(t) = 0 \)</span>. Solving for <span class="arithmatex">\( t \)</span>:</p>
+<p>The projectile lands when <span class="arithmatex">\(y(t) = 0\)</span>. Solving for <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
 \]</div>
 <p>Simplifying this, we get:</p>
 <div class="arithmatex">\[
-t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0
+t \left(v_0 \cdot \sin(\theta) - \frac{1}{2} g t \right) = 0
 \]</div>
-<p>Ignoring the <span class="arithmatex">\( t = 0 \)</span> solution:</p>
+<p>Ignoring the <span class="arithmatex">\(t = 0\)</span> solution:</p>
 <div class="arithmatex">\[
-t = \frac{2v_0 \sin(\theta)}{g}
+t = \frac{2 v_0 \sin(\theta)}{g}
 \]</div>
 <p><strong>Range of the Projectile</strong><br/>
 Substitute time of flight into the horizontal motion equation:</p>
 <div class="arithmatex">\[
-R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{2v_0 \sin(\theta)}{g}
+R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{2 v_0 \sin(\theta)}{g}
 \]</div>
 <p>Simplifying, we get the final form of the range equation:</p>
 <div class="arithmatex">\[
@@ -225,9 +231,9 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 \]</div>
 <h2 id="analysis-of-the-range">Analysis of the Range</h2>
 <p><strong>Influence of Angle</strong></p>
-<p>As shown by the formula <span class="arithmatex">\( R = \frac{v_0^2 \sin(2\theta)}{g} \)</span>, the range follows a sine curve with respect to <span class="arithmatex">\( 2\theta \)</span>, peaking at <span class="arithmatex">\( 45^\circ \)</span>. Beyond this, the range decreases symmetrically.</p>
+<p>As shown by the formula <span class="arithmatex">\(R = \frac{v_0^2 \sin(2\theta)}{g}\)</span>, the range follows a sine curve with respect to <span class="arithmatex">\(2\theta\)</span>, peaking at <span class="arithmatex">\(45^\circ\)</span>. Beyond this, the range decreases symmetrically.</p>
 <p><strong>Influence of Initial Velocity</strong><br/>
-Since <span class="arithmatex">\( R \propto v_0^2 \)</span>, increasing the initial speed leads to a quadratic increase in the range.</p>
+Since <span class="arithmatex">\(R \propto v_0^2\)</span>, increasing the initial speed leads to a quadratic increase in the range.</p>
 <p><strong>Influence of Gravity</strong><br/>
 The range is inversely proportional to gravity. On planets with lower gravity (e.g., the Moon), the range increases.</p>
 <h2 id="practical-applications">Practical Applications</h2>
