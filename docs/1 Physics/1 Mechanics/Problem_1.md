@@ -1,59 +1,99 @@
 # Investigating the Range as a Function of the Angle of Projection
+
 This investigation examines how the range of a projectile is affected by the angle at which it is launched. By varying the angle of projection and measuring the resulting horizontal distance, we aim to identify patterns in the data and determine the angle that produces the maximum range.
 
 ## Theoretical Foundation
-Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed 𝑣𝜃, angle of projection 𝜃, and gravitational acceleration 𝑔.
 
-<b>Equations of Motion:</b>
+Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed \( v_0 \), angle of projection \( \theta \), and gravitational acceleration \( g \).
 
-We start with Newton's Second Law:
-<p>$$ F = m \\a $$</p>
+**Equations of Motion:**
+
+We start with Newton's Second Law:  
+$$
+F = ma
+$$
 
 For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:
-- Horizontal: constant velocity motion
-- Vertical: uniformly accelerated motion
+- **Horizontal:** constant velocity motion  
+- **Vertical:** uniformly accelerated motion
 
 Let:
-<ul>
-<li>𝑣𝜃: initial speed<</li>
-<li>𝜃: angle of projection</li>
-<li>𝑔: acceleration due to gravity</li>
-</ul>
+- \( v_0 \): initial speed  
+- \( \theta \): angle of projection  
+- \( g \): acceleration due to gravity  
 
-<b>Horizontal motion:</b>
-<p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
-<b>Vertical motion:</b>
-<p>$$ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+**Horizontal motion:**  
+$$
+x(t) = v_0 \cdot \cos(\theta) \cdot t
+$$
+
+**Vertical motion:**  
+$$
+y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
+$$
 
 ## Time of Flight
-The projectile lands when <b>𝑦(𝑡)=<i>0</i></b>. Solving for <b>𝑡</b>:
-<p>$$ 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$</p>
+
+The projectile lands when \( y(t) = 0 \). Solving for \( t \):
+
+$$
+0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
+$$
+
 Simplifying this, we get:
-<p>$$ t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0 $$</p>
-Ignoring the <b>𝑡=<i>0</i></b> solution:
-<p>$$ t = \frac{2v_0 \sin(\theta)}{g} $$</p>
-<b>Range of the Projectile</b><br />
+
+$$
+t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0
+$$
+
+Ignoring the \( t = 0 \) solution:
+
+$$
+t = \frac{2v_0 \sin(\theta)}{g}
+$$
+
+**Range of the Projectile**  
 Substitute time of flight into the horizontal motion equation:
-<p>$$ R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{g}{2v_0 \sin(\theta)} $$</p>
+
+$$
+R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{2v_0 \sin(\theta)}{g}
+$$
+
 Simplifying, we get the final form of the range equation:
-<p>$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
+
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g}
+$$
+
 ## Analysis of the Range
-<b>Influence of Angle</b>
 
-As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$.Beyond this, the range decreases symmetrically.
+**Influence of Angle**
 
-<b>Influence of Initial Velocity</b><br />
-Since $R \propto v_0^2$ increasing the initial speed leads to a quadratic increase in the range.
-<b>Influence of Gravity</b><br />
+As shown by the formula  
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g}
+$$  
+the range follows a sine curve with respect to \( 2\theta \), peaking at \( 45^\circ \). Beyond this, the range decreases symmetrically.
+
+**Influence of Initial Velocity**  
+Since \( R \propto v_0^2 \), increasing the initial speed leads to a quadratic increase in the range.
+
+**Influence of Gravity**  
 The range is inversely proportional to gravity. On planets with lower gravity (e.g., the Moon), the range increases.
+
 ## Practical Applications
-<b>Uneven Terrain</b>: The standard model assumes launch and landing at the same height. When the launch or landing height changes, the time of flight and range must be recalculated using modified kinematic equations.<br />
-<b>Air Resistance</b>: In real-world applications (e.g., ballistics, sports, engineering), air resistance can significantly reduce the range and alter the trajectory shape. Incorporating drag involves solving differential  equations with velocity-dependent forces.<br />
-<b>Sports</b>: Optimizing projectile angles in games like basketball or soccer.<br />
-<b>Engineering</b>: Designing trajectories in ballistics or launching mechanisms.<br />
+
+- **Uneven Terrain:** The standard model assumes launch and landing at the same height. When the launch or landing height changes, the time of flight and range must be recalculated using modified kinematic equations.  
+- **Air Resistance:** In real-world applications (e.g., ballistics, sports, engineering), air resistance can significantly reduce the range and alter the trajectory shape. Incorporating drag involves solving differential equations with velocity-dependent forces.  
+- **Sports:** Optimizing projectile angles in games like basketball or soccer.  
+- **Engineering:** Designing trajectories in ballistics or launching mechanisms.  
+
 ## Implementation
-<b>Python Simulation</b>
-<pre><code class="language-python">import numpy as np
+
+**Python Simulation**
+
+```python
+import numpy as np
 import matplotlib.pyplot as plt
 
 # Parameters
@@ -74,8 +114,7 @@ plt.grid(True)
 plt.axvline(45, color='r', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.show()
-</code></pre>
-![image](https://github.com/user-attachments/assets/dbb7d00f-973d-49d5-8e31-54a1622f1c24)<br />
+
 <i>Running the above script will generate a graph showing the horizontal range as a function of the angle of projection for a given initial velocity. The curve will demonstrate that the range is maximized at 45∘</i>
 
 ## Conclusion
