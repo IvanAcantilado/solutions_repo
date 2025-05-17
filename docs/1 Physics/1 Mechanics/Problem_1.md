@@ -14,9 +14,11 @@ For projectile motion, the only force acting is gravity. The horizontal and vert
 - Vertical: uniformly accelerated motion
 
 Let:
-- 𝑣𝜃: initial speed
-- 𝜃: angle of projection
-- 𝑔: acceleration due to gravity
+<ul>
+<li>𝑣𝜃: initial speed<</li>
+<li>𝜃: angle of projection</li>
+<li>𝑔: acceleration due to gravity</li>
+</ul>
 
 <b>Horizontal motion:</b>
 <p>$$ x(t) = v_0 \cdot \cos(\theta) \cdot t $$</p>
@@ -39,3 +41,37 @@ Simplifying, we get the final form of the range equation:
 <b>Influence of Angle</b>
 
 As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$.Beyond this, the range decreases symmetrically.
+
+<b>Influence of Initial Velocity</b><br />
+Since $R \propto v_0^2$ increasing the initial speed leads to a quadratic increase in the range.
+<b>Influence of Gravity</b><br />
+The range is inversely proportional to gravity. On planets with lower gravity (e.g., the Moon), the range increases.
+## Practical Applications
+<b>Uneven Terrain</b>: The standard model assumes launch and landing at the same height. When the launch or landing height changes, the time of flight and range must be recalculated using modified kinematic equations.<br />
+<b>Air Resistance</b>: In real-world applications (e.g., ballistics, sports, engineering), air resistance can significantly reduce the range and alter the trajectory shape. Incorporating drag involves solving differential  equations with velocity-dependent forces.<br />
+<b>Sports</b>: Optimizing projectile angles in games like basketball or soccer.<br />
+<b>Engineering</b>: Designing trajectories in ballistics or launching mechanisms.<br />
+## Implementation
+<b>Python Simulation</b>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+v0 = 20  # initial velocity in m/s
+g = 9.81  # gravity in m/s^2
+angles = np.radians(np.linspace(0, 90, 100))
+
+# Calculate ranges
+ranges = (v0**2 * np.sin(2 * angles)) / g
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(np.degrees(angles), ranges)
+plt.title("Range as a Function of Angle of Projection")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (meters)")
+plt.grid(True)
+plt.axvline(45, color='r', linestyle='--', label='Max Range at 45°')
+plt.legend()
+plt.show()
+</code></pre>
