@@ -4,69 +4,74 @@ This investigation examines how the range of a projectile is affected by the ang
 
 ## Theoretical Foundation
 
-Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed \( v_0 \), angle of projection \( \theta \), and gravitational acceleration \( g \).
+Projectile motion describes the motion of an object under the influence of gravity, neglecting air resistance. The object follows a parabolic trajectory determined by its initial conditions: initial speed $v_0$, angle of projection $theta$, and gravitational acceleration $g$.
 
 **Equations of Motion:**
 
 We start with Newton's Second Law:  
-\[ F = m a \]
+$$ F = m a $$
 
 For projectile motion, the only force acting is gravity. The horizontal and vertical components of motion can be treated separately:
+
 - **Horizontal:** constant velocity motion  
 - **Vertical:** uniformly accelerated motion
 
-Let:
-- \( v_0 \): initial speed  
-- \( \theta \): angle of projection  
-- \( g \): acceleration due to gravity  
+Let:  
+- $v_0$: initial speed  
+- $\theta$: angle of projection  
+- $g$: acceleration due to gravity  
 
 **Horizontal motion:**  
-\[ x(t) = v_0 \cdot \cos(\theta) \cdot t \]
+$$
+x(t) = v_0 \cdot \cos(\theta) \cdot t
+$$
 
 **Vertical motion:**  
-\[ y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2 \]
+$$
+y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
+$$
 
 ## Time of Flight
 
-The projectile lands when \( y(t) = 0 \). Solving for \( t \):
+The projectile lands when $y(t) = 0$. Solving for $t$:
 
-\[
+$$
 0 = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
-\]
+$$
 
 Simplifying this, we get:
 
-\[
-t(v_0 \cdot \sin(\theta) - \frac{1}{2} g t) = 0
-\]
+$$
+t \left(v_0 \cdot \sin(\theta) - \frac{1}{2} g t \right) = 0
+$$
 
-Ignoring the \( t = 0 \) solution:
+Ignoring the $t = 0$ solution:
 
-\[
-t = \frac{2v_0 \sin(\theta)}{g}
-\]
+$$
+t = \frac{2 v_0 \sin(\theta)}{g}
+$$
 
 **Range of the Projectile**  
 Substitute time of flight into the horizontal motion equation:
 
-\[
-R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{2v_0 \sin(\theta)}{g}
-\]
+$$
+R = x(t) = v_0 \cdot \cos(\theta) \cdot \frac{2 v_0 \sin(\theta)}{g}
+$$
 
 Simplifying, we get the final form of the range equation:
 
-\[
+$$
 R = \frac{v_0^2 \sin(2\theta)}{g}
-\]
+$$
 
 ## Analysis of the Range
 
 **Influence of Angle**
 
-As shown by the formula \( R = \frac{v_0^2 \sin(2\theta)}{g} \), the range follows a sine curve with respect to \( 2\theta \), peaking at \( 45^\circ \). Beyond this, the range decreases symmetrically.
+As shown by the formula $R = \frac{v_0^2 \sin(2\theta)}{g}$, the range follows a sine curve with respect to $2\theta$, peaking at $45^\circ$. Beyond this, the range decreases symmetrically.
 
 **Influence of Initial Velocity**  
-Since \( R \propto v_0^2 \), increasing the initial speed leads to a quadratic increase in the range.
+Since $R \propto v_0^2$, increasing the initial speed leads to a quadratic increase in the range.
 
 **Influence of Gravity**  
 The range is inversely proportional to gravity. On planets with lower gravity (e.g., the Moon), the range increases.
