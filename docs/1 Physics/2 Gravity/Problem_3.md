@@ -19,6 +19,7 @@ F = \frac{G M_E m}{r^2}
 $$
 
 Where:
+
 - $G = 6.67430 \times 10^{-11}$ N·m²/kg² (gravitational constant)
 - $M_E = 5.972 \times 10^{24}$ kg (mass of Earth)
 - $r$ = distance from Earth’s center
