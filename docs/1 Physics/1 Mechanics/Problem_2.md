@@ -20,6 +20,44 @@ Where:
 - **A** is the amplitude of the external driving force.  
 - **ω** is the driving frequency.
 
+
+**Apply Newton’s Second Law**
+
+$$
+\tau_{\text{net}} = I \ddot{\theta}
+$$
+
+Where $I = mL^2$. So:
+
+$$
+- mgL \sin(\theta) - \gamma \dot{\theta} + A \cos(\omega t) = mL^2 \ddot{\theta}
+$$
+
+---
+
+**Divide both sides by $mL^2$:**
+
+$$
+\ddot{\theta} + \frac{\gamma}{mL^2} \dot{\theta} + \frac{g}{L} \sin(\theta) = \frac{A}{mL^2} \cos(\omega t)
+$$
+
+---
+
+Let:
+
+$$
+\gamma = \frac{\gamma}{mL^2} \quad \text{(effective damping constant)}
+$$
+
+$$
+A = \frac{A}{mL^2} \quad \text{(effective driving amplitude)}
+$$
+
+---
+Giving us the final equation
+
+This describes a **damped, driven pendulum**.
+
 **Resonance and Energy Implications**
 
 - **Resonance** occurs when the driving frequency ω matches the natural frequency ω₀ of the system, causing the amplitude of oscillation to increase significantly.
