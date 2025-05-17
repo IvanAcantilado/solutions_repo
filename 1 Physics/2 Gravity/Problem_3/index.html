@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 3 - Physics and Mathematics</title>
+<title>Trajectories of a Freely Released Payload Near Earth - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 3";
+        var mkdocs_page_name = "Trajectories of a Freely Released Payload Near Earth";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_3.md";
         var mkdocs_page_url = null;
       </script>
@@ -58,7 +58,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Escape Velocities and Cosmic Velocities</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Trajectories of a Freely Released Payload Near Earth</a>
 <ul class="current">
 </ul>
 </li>
@@ -163,7 +163,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 3</li>
+<li class="breadcrumb-item active">Trajectories of a Freely Released Payload Near Earth</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +171,199 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-3">Problem 3</h1>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h1>
+<h1 id="orbital-motion-analysis">Orbital Motion Analysis</h1>
+<p>When a payload is released near Earth, its subsequent path is governed by the laws of gravitational motion. Depending on its velocity and direction at the moment of release, the payload may follow a <strong>parabolic</strong>, <strong>elliptical</strong>, <strong>circular</strong>, or <strong>hyperbolic trajectory</strong>. These paths are crucial to understanding outcomes such as <strong>orbital insertion</strong>, <strong>reentry</strong>, or <strong>escape</strong> from Earth's gravitational influence.</p>
+<p>This presentation is an analytical and numerical study of these trajectories, supported by simulations that visualize the motion under various initial conditions.</p>
+<hr/>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<h3 id="newtons-law-of-universal-gravitation">Newton's Law of Universal Gravitation</h3>
+<p>The gravitational force exerted by Earth on a payload of mass <span class="arithmatex">\(m\)</span> is:</p>
+<div class="arithmatex">\[
+F = \frac{G M_E m}{r^2}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(G = 6.67430 \times 10^{-11}\)</span> N·m²/kg² (gravitational constant)
+- <span class="arithmatex">\(M_E = 5.972 \times 10^{24}\)</span> kg (mass of Earth)
+- <span class="arithmatex">\(r\)</span> = distance from Earth’s center</p>
+<h3 id="equation-of-motion">Equation of Motion</h3>
+<p>The payload's acceleration <span class="arithmatex">\(\vec{a}\)</span> due to gravity is:</p>
+<div class="arithmatex">\[
+\vec{a} = -\frac{G M_E}{r^3} \vec{r}
+\]</div>
+<p>This leads to a second-order differential equation for numerical integration.</p>
+<h3 id="orbital-shapes">Orbital Shapes</h3>
+<p>The total mechanical energy <span class="arithmatex">\(E\)</span> of the system defines the trajectory type:</p>
+<ul>
+<li>Elliptical orbit: <span class="arithmatex">\(E &lt; 0\)</span></li>
+<li>Parabolic escape: <span class="arithmatex">\(E = 0\)</span></li>
+<li>Hyperbolic escape: <span class="arithmatex">\(E &gt; 0\)</span></li>
+<li>Circular orbit (special case of ellipse): constant radius</li>
+</ul>
+<div class="arithmatex">\[
+E = \frac{1}{2}mv^2 - \frac{G M_E m}{r}
+\]</div>
+<hr/>
+<h2 id="numerical-analysis-and-simulation">Numerical Analysis and Simulation</h2>
+<h3 id="initial-conditions">Initial Conditions</h3>
+<p>The payload is released from a point <span class="arithmatex">\(\vec{r}_0\)</span> (typically above Earth’s surface) with a velocity <span class="arithmatex">\(\vec{v}_0\)</span>. Varying <span class="arithmatex">\(\vec{v}_0\)</span> and its direction simulates different outcomes.</p>
+<h3 id="numerical-method-runge-kutta-rk4">Numerical Method: Runge-Kutta (RK4)</h3>
+<p>The fourth-order Runge-Kutta method is used to solve the equations of motion:</p>
+<div class="arithmatex">\[
+\mathbf{r}_{n+1}, \mathbf{v}_{n+1} = f(\mathbf{r}_n, \mathbf{v}_n, \Delta t)
+\]</div>
+<p>A time step <span class="arithmatex">\(\Delta t\)</span> is chosen small enough to ensure accuracy.</p>
+<h3 id="python-implementation-overview">Python Implementation Overview</h3>
+<p>(Implementation code omitted; interactive JavaScript or Python code handles the simulation.)</p>
+<hr/>
+<h3 id="simulation-cases">Simulation Cases</h3>
+<p><head>
+<title>Orbital Simulation</title>
+<br/>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script></head></p>
+<p></p>
+<body>
+<h1>Orbital Simulation</h1>
+<div id="controls">
+<label for="speedSlider">Initial Speed (m/s): </label>
+<input id="speedSlider" max="12000" min="3000" step="100" type="range" value="3000"/>
+<span id="speedValue">3000</span>
+</div>
+<div id="plot" style="width:700px;height:700px;margin:auto;"></div>
+<script>
+    const G = 6.67430e-11;
+    const M = 5.972e24;
+    const R_earth = 6371e3;
+    const altitude = 200e3;
+    const dt = 1.0;
+    const t_max = 10000;
+
+    function acceleration(r) {
+      const norm = Math.sqrt(r[0]**2 + r[1]**2);
+      return [-G * M * r[0] / norm**3, -G * M * r[1] / norm**3];
+    }
+
+    function rk4_step(r, v, dt) {
+      const a1 = acceleration(r);
+      const k1r = [v[0] * dt, v[1] * dt];
+      const k1v = [a1[0] * dt, a1[1] * dt];
+
+      const r2 = [r[0] + 0.5 * k1r[0], r[1] + 0.5 * k1r[1]];
+      const v2 = [v[0] + 0.5 * k1v[0], v[1] + 0.5 * k1v[1]];
+      const a2 = acceleration(r2);
+      const k2r = [v2[0] * dt, v2[1] * dt];
+      const k2v = [a2[0] * dt, a2[1] * dt];
+
+      const r3 = [r[0] + 0.5 * k2r[0], r[1] + 0.5 * k2r[1]];
+      const v3 = [v[0] + 0.5 * k2v[0], v[1] + 0.5 * k2v[1]];
+      const a3 = acceleration(r3);
+      const k3r = [v3[0] * dt, v3[1] * dt];
+      const k3v = [a3[0] * dt, a3[1] * dt];
+
+      const r4 = [r[0] + k3r[0], r[1] + k3r[1]];
+      const v4 = [v[0] + k3v[0], v[1] + k3v[1]];
+      const a4 = acceleration(r4);
+      const k4r = [v4[0] * dt, v4[1] * dt];
+      const k4v = [a4[0] * dt, a4[1] * dt];
+
+      const r_next = [
+        r[0] + (k1r[0] + 2*k2r[0] + 2*k3r[0] + k4r[0]) / 6,
+        r[1] + (k1r[1] + 2*k2r[1] + 2*k3r[1] + k4r[1]) / 6
+      ];
+      const v_next = [
+        v[0] + (k1v[0] + 2*k2v[0] + 2*k3v[0] + k4v[0]) / 6,
+        v[1] + (k1v[1] + 2*k2v[1] + 2*k3v[1] + k4v[1]) / 6
+      ];
+
+      return [r_next, v_next];
+    }
+
+    function simulate(initial_speed) {
+      let r = [R_earth + altitude, 0];
+      let v = [0, initial_speed];
+      let x = [], y = [];
+
+      for (let t = 0; t < t_max; t += dt) {
+        [r, v] = rk4_step(r, v, dt);
+        if (Math.hypot(r[0], r[1]) < R_earth) break;
+        x.push(r[0]);
+        y.push(r[1]);
+      }
+
+      const earth = {
+        type: "scatter",
+        x: [0],
+        y: [0],
+        mode: "markers",
+        marker: { size: R_earth / 100000, color: "blue", opacity: 0.5 },
+        name: "Earth"
+      };
+
+      const orbit = {
+        type: "scatter",
+        x: x,
+        y: y,
+        mode: "lines",
+        line: { color: "red" },
+        name: `Speed: ${initial_speed} m/s`
+      };
+
+      const layout = {
+        title: `Orbital Path for Initial Speed: ${initial_speed} m/s`,
+        xaxis: { scaleanchor: "y", title: "x (m)" },
+        yaxis: { title: "y (m)" },
+        showlegend: true
+      };
+
+      Plotly.newPlot("plot", [earth, orbit], layout);
+    }
+
+    const slider = document.getElementById("speedSlider");
+    const speedVal = document.getElementById("speedValue");
+    slider.addEventListener("input", () => {
+      const speed = parseFloat(slider.value);
+      speedVal.textContent = speed;
+      simulate(speed);
+    });
+
+    simulate(parseFloat(slider.value));
+  </script>
+</body>
+<p><strong>Case 1: Suborbital Reentry</strong>
+- Initial altitude: 200 km<br/>
+- Initial speed: 3,000 m/s (horizontal)<br/>
+- Result: Elliptical path intersecting Earth → reentry</p>
+<p><strong>Case 2: Stable Orbit</strong>
+- Initial speed: ~7,800 m/s<br/>
+- Result: Circular orbit at 200 km altitude</p>
+<p><strong>Case 3: Escape Trajectory</strong>
+- Initial speed: &gt;11,200 m/s (escape velocity)<br/>
+- Result: Hyperbolic trajectory</p>
+<hr/>
+<h2 id="orbital-insertion-reentry-and-escape">Orbital Insertion, Reentry, and Escape</h2>
+<h3 id="orbital-insertion">Orbital Insertion</h3>
+<p>A payload must achieve a tangential velocity of:</p>
+<div class="arithmatex">\[
+v_c = \sqrt{\frac{G M_E}{r}}
+\]</div>
+<p>This ensures centripetal force equals gravitational pull, leading to a circular orbit.</p>
+<h3 id="reentry">Reentry</h3>
+<p>If <span class="arithmatex">\(v &lt; v_c\)</span>, the trajectory is elliptical with perigee within Earth's atmosphere, causing atmospheric drag and reentry.</p>
+<h3 id="escape">Escape</h3>
+<p>If <span class="arithmatex">\(v \geq v_{\text{esc}} = \sqrt{\frac{2 G M_E}{r}}\)</span>, the object escapes Earth's gravitational field.</p>
+<hr/>
+<h2 id="real-world-applications">Real-World Applications</h2>
+<ul>
+<li><strong>Satellite Deployment</strong>: Accurate velocity ensures correct orbit.  </li>
+<li><strong>Space Mission Planning</strong>: Trajectory types determine fuel needs and mission profiles.  </li>
+<li><strong>Planetary Exploration</strong>: Gravity assists and escape trajectories are used to reach other planets.  </li>
+</ul>
+<hr/>
+<h2 id="visualization-tool">Visualization Tool</h2>
+<p>The simulation tool plots trajectories using <code>matplotlib</code> or an interactive JavaScript plot (e.g., Plotly) to dynamically observe how initial speed affects the path.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>By applying fundamental physics and numerical modeling, we’ve shown how the trajectory of a released payload is determined by initial conditions. This study highlights critical concepts in spaceflight mechanics and offers a practical tool for visualizing and planning near-Earth missions.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
