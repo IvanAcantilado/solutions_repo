@@ -120,7 +120,7 @@ plt.show()
 </code></pre>
 
 ![image](https://github.com/user-attachments/assets/085ddabe-0067-46d3-97b5-d1f30123af89)
-![image](https://github.com/user-attachments/assets/8dac58e4-6d7d-415f-9c69-536cb0eeac48)
+![444869447-8dac58e4-6d7d-415f-9c69-536cb0eeac48](https://github.com/user-attachments/assets/f1d715ac-3262-4d28-aa20-553b460ba09a)
 ![image](https://github.com/user-attachments/assets/45110d94-660f-4f4e-b84d-f36a2917094b)
 
 
