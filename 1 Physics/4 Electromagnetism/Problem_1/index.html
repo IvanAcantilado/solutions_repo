@@ -72,6 +72,12 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#exploration-of-applications">Exploration of Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulating-particle-motion">Simulating Particle Motion</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-exploration">Parameter Exploration</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +178,183 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p><strong>The Lorentz force</strong>, expressed as<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}\)</span>\)</span><br/>
+governs the behavior of charged particles in the presence of electric and magnetic fields. It is a cornerstone concept in <strong>plasma physics</strong>, <strong>astrophysics</strong>, and <strong>particle accelerator technology</strong>. Through simulation, we can gain a visual and intuitive understanding of how charged particles move under the influence of these fields.</p>
+<h3 id="exploration-of-applications">Exploration of Applications</h3>
+<p><strong>Key Systems:</strong>
+- <strong>Particle Accelerators</strong>: Control and acceleration of particles using electric/magnetic fields.
+- <strong>Mass Spectrometers</strong>: Use magnetic deflection to separate particles by mass-to-charge ratio.
+- <strong>Plasma Confinement Devices</strong>: Such as tokamaks, which rely on magnetic fields to trap hot plasma.</p>
+<p><strong>Field Relevance:</strong>
+- <strong>Electric Fields</strong> <span class="arithmatex">\(\vec{E}\)</span>: Accelerate particles.
+- <strong>Magnetic Fields</strong> <span class="arithmatex">\(\vec{B}\)</span>: Change direction, creating circular or helical motion.
+- Crossed fields can induce drift velocities and lead to phenomena like <span class="arithmatex">\(\vec{E} \times \vec{B}\)</span> drift.</p>
+<h3 id="simulating-particle-motion">Simulating Particle Motion</h3>
+<p>Numerically simulate the motion of a charged particle under various electromagnetic field configurations.</p>
+<p><strong>Simulation Scenarios:</strong></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/731e1e52-2506-4795-b979-8dbcedabe76a"/></p>
+<ul>
+<li>Expect circular motion (if velocity is perpendicular to <span class="arithmatex">\(\vec{B}\)</span>) or <strong>helical</strong> (if there's a component along <span class="arithmatex">\(\vec{B}\)</span>).</li>
+<li>Demonstrates cyclotron motion and introduces the concept of <strong>Larmor radius</strong> and <strong>cyclotron frequency</strong>.</li>
+</ul>
+<p><img alt="image" src="https://github.com/user-attachments/assets/f15af851-73a9-4ef0-95c9-ca24a454b417"/></p>
+<ul>
+<li>Non-trivial motion—often helical with drift.</li>
+<li>Depending on vector orientation, the particle can accelerate, spiral, or follow curved paths.</li>
+</ul>
+<p><img alt="image" src="https://github.com/user-attachments/assets/de06c814-c144-4a25-a102-1d8126d128bd"/></p>
+<ul>
+<li>Produces a <strong>drift velocity</strong>:
+  <span class="arithmatex">\(<span class="arithmatex">\(\vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}\)</span>\)</span></li>
+<li>Important for <strong>magnetron motion</strong> and behavior in <strong>Hall effect</strong>.</li>
+</ul>
+<h3 id="parameter-exploration">Parameter Exploration</h3>
+<p><strong>Field Strength (E and B):</strong>
+- The strength of the magnetic field <strong>B</strong> will directly impact the radius of the motion of the particle. A stronger <strong>B</strong> leads to a smaller radius of motion.
+- The electric field <strong>E</strong>, if present, could affect the overall trajectory and cause the particle to deviate from a perfect circular path.</p>
+<p><strong>Initial Particle Velocity (V):</strong>
+- The velocity of the particle will affect the speed at which the particle moves in its path. The initial velocity should be broken down into components. If the velocity is perpendicular to the magnetic field, the particle will undergo circular motion. If there’s a component of velocity parallel to the magnetic field, the motion will become helical.</p>
+<p><strong>Charge and Mass of the Particle (q and m):</strong>
+- The charge <strong>q</strong> affects the force exerted on the particle by the magnetic field. A greater charge leads to a larger Lorentz force, influencing the radius of the motion.
+- The mass <strong>m</strong> of the particle determines the inertia of the particle, and thus, a heavier particle will have a larger radius of motion under the same field strength and velocity.</p>
+<p><strong>Python Code</strong></p>
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0       # Charge (C)
+m = 1.0       # Mass (kg)
+B = np.array([0, 0, 1.0])  # Magnetic field (T)
+E = np.array([0, 0, 0])    # Electric field (V/m)
+
+# Initial conditions
+v0 = np.array([1.0, 0.0, 0.5])  # Initial velocity (m/s)
+r0 = np.array([0.0, 0.0, 0.0])  # Initial position (m)
+
+# Simulation parameters
+dt = 0.01  # Time step (s)
+T = 20     # Total time (s)
+N = int(T / dt)
+
+# Arrays to store position and velocity
+r = np.zeros((N, 3))
+v = np.zeros((N, 3))
+r[0] = r0
+v[0] = v0
+
+# Boris algorithm for integrating motion in E and B fields
+def boris_push(v, r, q, m, E, B, dt):
+    t = (q * B / m) * (dt / 2)
+    s = 2 * t / (1 + np.dot(t, t))
+    v_minus = v + (q * E / m) * (dt / 2)
+    v_prime = v_minus + np.cross(v_minus, t)
+    v_plus = v_minus + np.cross(v_prime, s)
+    v_new = v_plus + (q * E / m) * (dt / 2)
+    r_new = r + v_new * dt
+    return v_new, r_new
+
+# Simulate motion
+for i in range(1, N):
+    v[i], r[i] = boris_push(v[i-1], r[i-1], q, m, E, B, dt)
+
+# Plotting the trajectory in 3D and 2D
+fig = plt.figure(figsize=(14, 6))
+
+# 3D trajectory
+ax = fig.add_subplot(121, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Trajectory', color='orange')
+ax.set_title('3D Trajectory (Helical Motion)')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.legend()
+
+# 2D projection
+ax2 = fig.add_subplot(122)
+ax2.plot(r[:, 0], r[:, 1], label='XY Projection', color='orange')
+ax2.set_title('2D Projection (Top View)')
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.axis('equal')
+ax2.legend()
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="image" src="https://github.com/user-attachments/assets/ef16ebc4-85b7-4ba5-ab6e-2baa1e0e757a"/>
+<img alt="image" src="https://github.com/user-attachments/assets/3c92c261-ad98-4e76-86da-f97d0acea338"/></p>
+<p>The simulation shows a charged particle's helical motion in a uniform magnetic field. The 3D plot displays a spiral trajectory caused by circular motion in the XY-plane (due to the Lorentz force) combined with linear motion along the Z-axis. The 2D plot highlights the circular component of this motion.<br/>
+Key features include the <strong>Larmor radius</strong> (circular path size) and the <strong>helix pitch</strong>, reflecting the particle's velocity components perpendicular and parallel to the magnetic field.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants for circular motion (v ⊥ B)
+q = 1.0       # Charge (C)
+m = 1.0       # Mass (kg)
+B = np.array([0, 0, 1.0])  # Magnetic field (T)
+E = np.array([0, 0, 0])    # Electric field (V/m)
+
+# Initial conditions: velocity entirely perpendicular to B
+v0 = np.array([1.0, 0.0, 0.0])  # No z-component
+r0 = np.array([0.0, 0.0, 0.0])  # Starting at origin
+
+# Simulation parameters
+dt = 0.01  # Time step (s)
+T = 20     # Total time (s)
+N = int(T / dt)
+
+# Arrays to store position and velocity
+r = np.zeros((N, 3))
+v = np.zeros((N, 3))
+r[0] = r0
+v[0] = v0
+
+# Boris algorithm for integrating motion
+def boris_push(v, r, q, m, E, B, dt):
+    t = (q * B / m) * (dt / 2)
+    s = 2 * t / (1 + np.dot(t, t))
+    v_minus = v + (q * E / m) * (dt / 2)
+    v_prime = v_minus + np.cross(v_minus, t)
+    v_plus = v_minus + np.cross(v_prime, s)
+    v_new = v_plus + (q * E / m) * (dt / 2)
+    r_new = r + v_new * dt
+    return v_new, r_new
+
+# Simulate motion
+for i in range(1, N):
+    v[i], r[i] = boris_push(v[i-1], r[i-1], q, m, E, B, dt)
+
+# Plotting the trajectory in 3D and 2D
+fig = plt.figure(figsize=(14, 6))
+
+# 3D trajectory
+ax = fig.add_subplot(121, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Trajectory', color='blue')
+ax.set_title('3D Trajectory (Circular Motion)')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.legend()
+
+# 2D projection
+ax2 = fig.add_subplot(122)
+ax2.plot(r[:, 0], r[:, 1], label='XY Projection', color='blue')
+ax2.set_title('2D Projection (Top View)')
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.axis('equal')
+ax2.legend()
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="image" src="https://github.com/user-attachments/assets/94ee6df1-2659-4769-a677-17771c9ae0bf"/></p>
+<p>This shows the particle confined to the XY-plane with a constant radius circular path. The Z-coordinate remains at zero throughout, which is consistent with a velocity entirely perpendicular to the magnetic field directed along the Z-axis.<br/>
+These plots visualize the fundamental physics of <strong>cyclotron motion</strong>, where the particle revolves at a constant <strong>cyclotron frequency</strong> with a radius known as the <strong>Larmor radius</strong>.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
