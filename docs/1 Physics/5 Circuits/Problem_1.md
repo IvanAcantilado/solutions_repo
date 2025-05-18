@@ -163,6 +163,9 @@ if __name__ == "__main__":
 - **Identifying Parallel Connections**: In the `is_parallel_connection` function, we check if two nodes are connected at the same junction, which means they are in parallel.
 - **Iterative Simplification**: The `calculate_equivalent_resistance` function runs iteratively, continuously simplifying the circuit until only one node remains, which represents the total equivalent resistance.
 
+![image](https://github.com/user-attachments/assets/c70c11c5-1092-44b3-9192-1b696299b1d6)
+![image](https://github.com/user-attachments/assets/3a5ae586-fc37-4edf-9ef5-09d9b50cc60e)
+
 ---
 
 ### Handling Nested Combinations
