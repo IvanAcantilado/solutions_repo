@@ -34,8 +34,7 @@ Numerically simulate the motion of a charged particle under various electromagne
 
 ![image](https://github.com/user-attachments/assets/de06c814-c144-4a25-a102-1d8126d128bd)
 
-- Produces a **drift velocity**:
-  $$\vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}$$
+- Produces a **drift velocity**: $\vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}$
 - Important for **magnetron motion** and behavior in **Hall effect**.
 
 ### Parameter Exploration
