@@ -161,7 +161,7 @@ $$
 
 ![Range as a Functio of Angle of Projection](https://github.com/user-attachments/assets/c43f1c8c-6b17-44eb-9435-a6dd436df76f)
 
-![Projection Trajectories for Various Angles](https://github.com/user-attachments/assets/db6f7fe0-8197-4d15-a457-155b5224bdf6)
+![Projection Trajectories for Various Angles](https://github.com/user-attachments/assets/ae7d24e7-caad-4408-aef3-a8e4144889fc)
 
 The simulation provides a hands-on way to explore how changing parameters affects projectile motion.
 
