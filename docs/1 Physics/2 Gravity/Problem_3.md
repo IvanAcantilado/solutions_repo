@@ -101,7 +101,7 @@ plt.show()
 ### Simulation Cases
 
 <head>
-  <title>Orbital Simulation</title>
+  <b>Orbital Simulation</b>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
