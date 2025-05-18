@@ -67,7 +67,34 @@ A time step $\Delta t$ is chosen small enough to ensure accuracy.
 
 ### Python Implementation Overview
 
-(Implementation code omitted; interactive JavaScript or Python code handles the simulation.)
+<pre><code class="language-python">def simulate_trajectory(r0, v0, t_max=6000, dt=1):
+    r, v = r0, v0
+    trajectory = [r.copy()]
+    for _ in range(int(t_max/dt)):
+        r, v = rk4(r, v, dt)
+        trajectory.append(r.copy())
+        if np.linalg.norm(r) < R_earth:
+            break
+    return np.array(trajectory)
+
+# Example
+r0 = np.array([R_earth + 200e3, 0])
+v0 = np.array([0, 7800])
+trajectory = simulate_trajectory(r0, v0)
+
+plt.plot(trajectory[:,0], trajectory[:,1])
+circle = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3)
+plt.gca().add_artist(circle)
+plt.axis('equal')
+plt.title("Payload Trajectory Near Earth")
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.grid()
+plt.show()
+</code></pre>
+
+
+![image](https://github.com/user-attachments/assets/48bc2f95-da9d-4f82-8796-0bd832154aff)
 
 ---
 
@@ -234,6 +261,8 @@ If $v \geq v_{\text{esc}} = \sqrt{\frac{2 G M_E}{r}}$, the object escapes Earth'
 ## Visualization Tool
 
 The simulation tool plots trajectories using `matplotlib` or an interactive JavaScript plot (e.g., Plotly) to dynamically observe how initial speed affects the path.
+
+![image](https://github.com/user-attachments/assets/0cc90d9e-dc15-4475-b3c9-d0d3359842d2)
 
 ---
 
