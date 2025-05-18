@@ -1,7 +1,9 @@
 # Simulating the effects of the Lorentz Force
 
-**The Lorentz force**, expressed as  
+**The Lorentz force**, expressed as
+
 $$\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}$$  
+
 governs the behavior of charged particles in the presence of electric and magnetic fields. It is a cornerstone concept in **plasma physics**, **astrophysics**, and **particle accelerator technology**. Through simulation, we can gain a visual and intuitive understanding of how charged particles move under the influence of these fields.
 
 ### Exploration of Applications
