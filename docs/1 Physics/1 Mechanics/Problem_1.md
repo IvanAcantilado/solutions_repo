@@ -161,7 +161,6 @@ $$
 
 <body>
 
-    <h2>Projectile Motion Python Code</h2>
     <button onclick="toggleCode()">Show Code</button>
 
     <div id="code-block">
