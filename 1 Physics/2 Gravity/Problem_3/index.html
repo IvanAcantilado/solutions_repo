@@ -216,7 +216,32 @@ E = \frac{1}{2}mv^2 - \frac{G M_E m}{r}
 \]</div>
 <p>A time step <span class="arithmatex">\(\Delta t\)</span> is chosen small enough to ensure accuracy.</p>
 <h3 id="python-implementation-overview">Python Implementation Overview</h3>
-<p>(Implementation code omitted; interactive JavaScript or Python code handles the simulation.)</p>
+<pre><code class="language-python">def simulate_trajectory(r0, v0, t_max=6000, dt=1):
+    r, v = r0, v0
+    trajectory = [r.copy()]
+    for _ in range(int(t_max/dt)):
+        r, v = rk4(r, v, dt)
+        trajectory.append(r.copy())
+        if np.linalg.norm(r) &lt; R_earth:
+            break
+    return np.array(trajectory)
+
+# Example
+r0 = np.array([R_earth + 200e3, 0])
+v0 = np.array([0, 7800])
+trajectory = simulate_trajectory(r0, v0)
+
+plt.plot(trajectory[:,0], trajectory[:,1])
+circle = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3)
+plt.gca().add_artist(circle)
+plt.axis('equal')
+plt.title("Payload Trajectory Near Earth")
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.grid()
+plt.show()
+</code></pre>
+<p><img alt="image" src="https://github.com/user-attachments/assets/48bc2f95-da9d-4f82-8796-0bd832154aff"/></p>
 <hr/>
 <h3 id="simulation-cases">Simulation Cases</h3>
 <p><head>
@@ -363,6 +388,7 @@ v_c = \sqrt{\frac{G M_E}{r}}
 <hr/>
 <h2 id="visualization-tool">Visualization Tool</h2>
 <p>The simulation tool plots trajectories using <code>matplotlib</code> or an interactive JavaScript plot (e.g., Plotly) to dynamically observe how initial speed affects the path.</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/0cc90d9e-dc15-4475-b3c9-d0d3359842d2"/></p>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
 <p>By applying fundamental physics and numerical modeling, we’ve shown how the trajectory of a released payload is determined by initial conditions. This study highlights critical concepts in spaceflight mechanics and offers a practical tool for visualizing and planning near-Earth missions.</p>
