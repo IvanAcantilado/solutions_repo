@@ -321,6 +321,75 @@ R = v_0 \cos \theta \times t_{\text{flight}}
 <li>Sweep <span class="arithmatex">\(\theta\)</span> from <span class="arithmatex">\(0^\circ\)</span> to <span class="arithmatex">\(90^\circ\)</span> to plot <span class="arithmatex">\(R(\theta)\)</span>.</li>
 <li>Visualize representative projectile trajectories for selected angles.</li>
 </ul>
+<body>
+
+<button onclick="toggleCode()">Show Code</button>
+
+<div id="code-block" style="display: none;">
+<pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+g = 9.81
+v0 = 30
+h = 0
+angles = np.radians(np.linspace(0, 90, 100))
+
+def compute_range(theta, v0, g, h=0):
+    sin_theta = np.sin(theta)
+    cos_theta = np.cos(theta)
+    if h == 0:
+        t_flight = 2 * v0 * sin_theta / g
+    else:
+        discriminant = (v0 * sin_theta)**2 + 2 * g * h
+        t_flight = (v0 * sin_theta + np.sqrt(discriminant)) / g
+    return v0 * cos_theta * t_flight
+
+ranges = np.array([compute_range(theta, v0, g, h) for theta in angles])
+
+plt.figure()
+plt.plot(np.degrees(angles), ranges)
+plt.title('Range vs. Angle of Projection')
+plt.xlabel('Angle (degrees)')
+plt.ylabel('Range (m)')
+plt.grid(True)
+plt.savefig("range_vs_angle.png")
+plt.show()
+
+plt.figure()
+for theta_deg in [15, 30, 45, 60, 75]:
+    theta = np.radians(theta_deg)
+    t_max = compute_range(theta, v0, g, h) / (v0 * np.cos(theta))
+    t = np.linspace(0, t_max, num=200)
+    x = v0 * np.cos(theta) * t
+    y = h + v0 * np.sin(theta) * t - 0.5 * g * t**2
+    plt.plot(x, y, label=f'{theta_deg}°')
+
+plt.title('Projectile Trajectories')
+plt.xlabel('Horizontal Distance (m)')
+plt.ylabel('Vertical Height (m)')
+plt.legend()
+plt.grid(True)
+plt.savefig("trajectories.png")
+plt.show()
+</code></pre>
+</div>
+
+<script>
+function toggleCode() {
+  var codeBlock = document.getElementById("code-block");
+  var button = document.querySelector("button");
+  if (codeBlock.style.display === "none") {
+    codeBlock.style.display = "block";
+    button.textContent = "Hide Code";
+  } else {
+    codeBlock.style.display = "none";
+    button.textContent = "Show Code";
+  }
+}
+</script>
+
+</body>
 <p><img alt="Range as a Functio of Angle of Projection" src="https://github.com/user-attachments/assets/c43f1c8c-6b17-44eb-9435-a6dd436df76f"/></p>
 <p><img alt="Projection Trajectories for Various Angles" src="https://github.com/user-attachments/assets/db6f7fe0-8197-4d15-a457-155b5224bdf6"/></p>
 <p>The simulation provides a hands-on way to explore how changing parameters affects projectile motion.</p>
