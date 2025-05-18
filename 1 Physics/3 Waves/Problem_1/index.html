@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Interference Patterns on a Water Surface - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Interference Patterns on a Water Surface";
         var mkdocs_page_input_path = "1 Physics/3 Waves/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -64,8 +64,16 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">3 Waves</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Interference Patterns on a Water Surface</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-model">Mathematical Model</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#superposition-principle">Superposition Principle</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization-python">Visualization (Python)</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +171,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">3 Waves</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Interference Patterns on a Water Surface</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +179,124 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</h1>
+<p>Wave interference is a fundamental phenomenon observed when two or more wave sources interact. On a water surface, when multiple point sources emit waves, the resulting surface displacement is determined by the superposition of individual wave contributions. This presentation focuses on simulating and analyzing the interference patterns that emerge when point sources are positioned at the vertices of a regular polygon.</p>
+<h3 id="mathematical-model">Mathematical Model</h3>
+<p>The displacement <span class="arithmatex">\(\eta(x, y, t)\)</span> at a point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span> due to a single wave source located at <span class="arithmatex">\((x_0, y_0)\)</span> is given by:</p>
+<div class="arithmatex">\[
+\eta(x, y, t) = \frac{A}{\sqrt{r}} \cdot \cos(kr - \omega t + \phi)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\eta(x, y, t)\)</span>: Water surface displacement at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(A\)</span>: Amplitude of the wave</li>
+<li><span class="arithmatex">\(r = \sqrt{(x - x_0)^2 + (y - y_0)^2}\)</span>: Distance from the source</li>
+<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span>: Wave number (wavelength <span class="arithmatex">\(\lambda\)</span>)</li>
+<li><span class="arithmatex">\(\omega = 2\pi f\)</span>: Angular frequency (frequency <span class="arithmatex">\(f\)</span>)</li>
+<li><span class="arithmatex">\(\phi\)</span>: Initial phase (set to 0 in this simulation)</li>
+</ul>
+<h4 id="superposition-principle">Superposition Principle</h4>
+<p>For <span class="arithmatex">\(N\)</span> point sources, the net displacement is:</p>
+<div class="arithmatex">\[
+\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
+\]</div>
+<p>For this, we will choose <strong>Square</strong> as our polygon.</p>
+<p><strong>Source Positions for Square</strong> (side length <span class="arithmatex">\(L = 4\)</span>):</p>
+<ul>
+<li><span class="arithmatex">\(S_1 = (-2, 2)\)</span> </li>
+<li><span class="arithmatex">\(S_2 = (2, 2)\)</span> </li>
+<li><span class="arithmatex">\(S_3 = (2, -2)\)</span> </li>
+<li><span class="arithmatex">\(S_4 = (-2, -2)\)</span></li>
+</ul>
+<p><strong>Individual Wave Equations:</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\eta_1(x, y, t) &amp;= \frac{1}{\sqrt{(x+2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y-2)^2} - \omega t + \phi \right) \\
+\eta_2(x, y, t) &amp;= \frac{1}{\sqrt{(x-2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x-2)^2 + (y-2)^2} - \omega t + \phi \right) \\
+\eta_3(x, y, t) &amp;= \frac{1}{\sqrt{(x-2)^2 + (y+2)^2}} \cdot A \cos\left(k \sqrt{(x-2)^2 + (y+2)^2} - \omega t + \phi \right) \\
+\eta_4(x, y, t) &amp;= \frac{1}{\sqrt{(x+2)^2 + (y+2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y+2)^2} - \omega t + \phi \right)
+\end{aligned}
+\]</div>
+<p><strong>Superposition:</strong></p>
+<p>The total wave displacement is:</p>
+<div class="arithmatex">\[
+\eta_{\text{sum}}(x, y, t) = \eta_1(x, y, t) + \eta_2(x, y, t) + \eta_3(x, y, t) + \eta_4(x, y, t)
+\]</div>
+<h3 id="visualization-python">Visualization (Python)</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Wave parameters
+A = 1                   # Amplitude
+wavelength = 2         # Wavelength
+frequency = 1          # Frequency (Hz)
+k = 2 * np.pi / wavelength  # Wave number
+omega = 2 * np.pi * frequency  # Angular frequency
+phi = 0                # Initial phase
+t = 0                  # Time snapshot
+
+# Define square vertices (L = 4)
+sources = [
+    (-2,  2),  # S1
+    ( 2,  2),  # S2
+    ( 2, -2),  # S3
+    (-2, -2)   # S4
+]
+
+# Create spatial grid
+x = np.linspace(-10, 10, 500)
+y = np.linspace(-10, 10, 500)
+X, Y = np.meshgrid(x, y)
+
+# Calculate wave displacement from each source
+eta_individual = []
+for (x0, y0) in sources:
+    R = np.sqrt((X - x0)**2 + (Y - y0)**2) + 1e-6  # Avoid division by zero
+    eta = A / np.sqrt(R) * np.cos(k * R - omega * t + phi)
+    eta_individual.append(eta)
+
+# Plot individual waves
+fig, axs = plt.subplots(2, 2, figsize=(14, 12))
+titles = ["Wave from S1 (-2, 2)", "Wave from S2 (2, 2)",
+          "Wave from S3 (2, -2)", "Wave from S4 (-2, -2)"]
+for i, ax in enumerate(axs.flat):
+    c = ax.contourf(X, Y, eta_individual[i], levels=100, cmap='RdBu')
+    fig.colorbar(c, ax=ax)
+    ax.set_title(titles[i])
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_aspect('equal')
+
+plt.tight_layout()
+plt.show()
+
+# Superposition of all waves
+eta_sum = np.sum(eta_individual, axis=0)
+
+# Plot superposition result
+plt.figure(figsize=(10, 8))
+contour = plt.contourf(X, Y, eta_sum, levels=100, cmap='RdBu')
+plt.colorbar(contour, label='Total Displacement η(x, y, t)')
+plt.title('Superposition of Waves from Square Configuration')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axis('equal')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="image" src="https://github.com/user-attachments/assets/085ddabe-0067-46d3-97b5-d1f30123af89"/>
+<img alt="image" src="https://github.com/user-attachments/assets/8dac58e4-6d7d-415f-9c69-536cb0eeac48"/>
+<img alt="image" src="https://github.com/user-attachments/assets/45110d94-660f-4f4e-b84d-f36a2917094b"/></p>
+<p><strong>Individual Wave Patterns</strong> – Each subplot shows the displacement field generated by one of the four point sources located at the square's corners.</p>
+<p><strong>Superposition of Waves</strong> – This plot shows the total wave pattern resulting from the interference of all four waves. You can observe areas of:</p>
+<ul>
+<li><strong>Constructive interference</strong> (bright regions): where wave crests meet crests.</li>
+<li><strong>Destructive interference</strong> (dark regions): where crests meet troughs and cancel out.</li>
+</ul>
+<hr/>
+<p>A fundamental concept in physics, particularly in the study of waves and oscillations, is the <strong>Superposition Principle</strong>. It states that when multiple wave sources interact with a medium, the resulting effect (such as displacement, pressure, or electric field) at any point in space and time is the sum of the individual effects from each source. This principle holds true under conditions where the waves do not permanently alter one another's behavior (i.e., no non-linear effects occur).</p>
+<p>To examine the resulting displacement as a function of position and time in the context of interference, we consider how waves from multiple sources (vertices of a regular polygon) interact. The displacement at any point is the sum of the displacements from each individual source, in accordance with the Superposition Principle.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
