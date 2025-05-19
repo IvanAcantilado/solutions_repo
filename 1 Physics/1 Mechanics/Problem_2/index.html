@@ -72,7 +72,15 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#5-implementation-python-simulation">5. Implementation (Python Simulation)</a>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-python-simulation">Implementation (Python Simulation)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extensions-and-limitations">Extensions and Limitations</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#model-limitations">Model Limitations:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#extensions">Extensions:</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -277,7 +285,7 @@
 <li><strong>Biomechanics</strong>: Human gait and prosthetic limb design can be modeled as forced damped oscillators.</li>
 </ul>
 <hr/>
-<h2 id="5-implementation-python-simulation">5. Implementation (Python Simulation)</h2>
+<h2 id="implementation-python-simulation">Implementation (Python Simulation)</h2>
 <p>Here's a simulation of a <strong>forced damped pendulum</strong> using typical parameters. The three visualizations are:</p>
 <ul>
 <li><strong>Angular Displacement vs Time</strong> – shows how the angle evolves over time under periodic forcing. Illustrates the evolution of the pendulum under different forcing conditions.</li>
@@ -291,6 +299,18 @@
 <li><strong>Poincaré Section</strong> – samples the system at regular intervals (every driving period) to help detect patterns. Reveals hidden structures and irregularities in motion, useful for identifying chaos.</li>
 </ul>
 <p><img alt="Pointcare Section" src="https://github.com/user-attachments/assets/f07f77d2-ef0a-49f8-ad22-312724e54a51"/></p>
+<h2 id="extensions-and-limitations">Extensions and Limitations</h2>
+<h3 id="model-limitations">Model Limitations:</h3>
+<ul>
+<li>Air resistance and pivot friction are not always captured accurately by linear damping.</li>
+<li>External forces may not always be strictly periodic.</li>
+</ul>
+<h3 id="extensions">Extensions:</h3>
+<ul>
+<li>Include nonlinear or velocity-squared damping.</li>
+<li>Add stochastic (random) driving terms.</li>
+<li>Explore coupling between multiple pendulums.</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
