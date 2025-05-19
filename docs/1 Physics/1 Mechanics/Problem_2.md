@@ -111,11 +111,14 @@ These behaviors are visualized through phase diagrams and Poincaré sections.
 
 Here's a simulation of a **forced damped pendulum** using typical parameters. The three visualizations are:
 
-- **Angular Displacement vs Time** – shows how the angle evolves over time under periodic forcing.
+- **Angular Displacement vs Time** – shows how the angle evolves over time under periodic forcing. Illustrates the evolution of the pendulum under different forcing conditions.
+
 ![Angular Displacement vs Time](https://github.com/user-attachments/assets/9656903e-4efc-40ed-bce1-bd12f6ddf635)
 
-- **Phase Portrait** – plots angular velocity against angle, revealing the system’s dynamical structure.
+- **Phase Portrait** – plots angular velocity against angle, revealing the system’s dynamical structure. Displays trajectories in phase space to distinguish between periodic and chaotic regimes.
+
 ![Phase Portrait](https://github.com/user-attachments/assets/d625c998-beb5-4f6a-8a96-75ebc0f3d868)
 
-- **Poincaré Section** – samples the system at regular intervals (every driving period) to help detect patterns or chaos.
+- **Poincaré Section** – samples the system at regular intervals (every driving period) to help detect patterns. Reveals hidden structures and irregularities in motion, useful for identifying chaos.
+
 ![Pointcare Section](https://github.com/user-attachments/assets/f07f77d2-ef0a-49f8-ad22-312724e54a51)
