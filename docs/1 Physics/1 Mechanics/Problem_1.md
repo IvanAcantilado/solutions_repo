@@ -243,7 +243,7 @@ The simulation provides a hands-on way to explore how changing parameters affect
 
 ---
 
-## 5. Limitations and Proposed Extensions
+## Limitations and Proposed Extensions
 
 ### Limitations
 
