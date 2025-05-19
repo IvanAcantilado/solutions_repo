@@ -161,7 +161,6 @@ $$
 
 <head>
     <meta charset="UTF-8">
-    <title>Projectile Motion Code Viewer</title>
 </head>
 <body>
 
