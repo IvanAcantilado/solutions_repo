@@ -107,7 +107,7 @@ These behaviors are visualized through phase diagrams and Poincaré sections.
 
 ---
 
-## 5. Implementation (Python Simulation)
+## Implementation (Python Simulation)
 
 Here's a simulation of a **forced damped pendulum** using typical parameters. The three visualizations are:
 
@@ -122,3 +122,14 @@ Here's a simulation of a **forced damped pendulum** using typical parameters. Th
 - **Poincaré Section** – samples the system at regular intervals (every driving period) to help detect patterns. Reveals hidden structures and irregularities in motion, useful for identifying chaos.
 
 ![Pointcare Section](https://github.com/user-attachments/assets/f07f77d2-ef0a-49f8-ad22-312724e54a51)
+
+## Extensions and Limitations
+
+### Model Limitations:
+- Air resistance and pivot friction are not always captured accurately by linear damping.
+- External forces may not always be strictly periodic.
+
+### Extensions:
+- Include nonlinear or velocity-squared damping.
+- Add stochastic (random) driving terms.
+- Explore coupling between multiple pendulums.
