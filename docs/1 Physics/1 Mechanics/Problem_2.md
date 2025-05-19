@@ -111,6 +111,99 @@ These behaviors are visualized through phase diagrams and Poincaré sections.
 
 Here's a simulation of a **forced damped pendulum** using typical parameters. The three visualizations are:
 
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <button onclick="toggleCode()">Show Code</button>
+
+    <div id="code-block" style="display: none;">
+     <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Parameters for the forced damped pendulum
+g = 9.81      # gravity (m/s^2)
+L = 1.0       # length of pendulum (m)
+b = 0.5       # damping coefficient
+A = 1.2       # driving amplitude
+omega = 2.0   # driving frequency
+T = 2 * np.pi / omega  # driving period
+duration = 100         # total time to simulate
+num_points = 10000     # resolution
+
+# Differential equation for the system
+def pendulum_ode(t, y):
+    theta, omega_ = y
+    dtheta_dt = omega_
+    domega_dt = -b * omega_ - (g / L) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Time array and initial conditions
+t_eval = np.linspace(0, duration, num_points)
+initial_conditions = [0.2, 0.0]
+
+# Solve the ODE
+sol = solve_ivp(pendulum_ode, [0, duration], initial_conditions, t_eval=t_eval, method='RK45')
+
+# Extract results
+theta = sol.y[0]
+omega_ = sol.y[1]
+time = sol.t
+
+# Compute Poincaré section (sample at each period)
+poincare_times = np.arange(0, duration, T)
+poincare_indices = [np.abs(time - pt).argmin() for pt in poincare_times]
+theta_poincare = theta[poincare_indices]
+omega_poincare = omega_[poincare_indices]
+
+# Plotting
+fig, axs = plt.subplots(3, 1, figsize=(10, 12))
+
+# Time evolution
+axs[0].plot(time, theta, label='θ(t)')
+axs[0].set_title('Angular Displacement vs Time')
+axs[0].set_xlabel('Time (s)')
+axs[0].set_ylabel('θ (rad)')
+axs[0].grid()
+
+# Phase portrait
+axs[1].plot(theta, omega_, color='darkorange')
+axs[1].set_title('Phase Portrait')
+axs[1].set_xlabel('θ (rad)')
+axs[1].set_ylabel('ω (rad/s)')
+axs[1].grid()
+
+# Poincaré section
+axs[2].scatter(theta_poincare, omega_poincare, color='green', s=10)
+axs[2].set_title('Poincaré Section')
+axs[2].set_xlabel('θ (rad)')
+axs[2].set_ylabel('ω (rad/s)')
+axs[2].grid()
+
+plt.tight_layout()
+plt.show()
+        </pre></code>
+    </div>
+
+    <script>
+        function toggleCode() {
+            const codeBlock = document.getElementById("code-block");
+            const button = document.querySelector("button");
+            if (codeBlock.style.display === "none") {
+                codeBlock.style.display = "block";
+                button.textContent = "Hide Code";
+            } else {
+                codeBlock.style.display = "none";
+                button.textContent = "Show Code";
+            }
+        }
+    </script>
+
+</body>
+
 - **Angular Displacement vs Time** – shows how the angle evolves over time under periodic forcing. Illustrates the evolution of the pendulum under different forcing conditions.
 
 ![Angular Displacement vs Time](https://github.com/user-attachments/assets/9656903e-4efc-40ed-bce1-bd12f6ddf635)
