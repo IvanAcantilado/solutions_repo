@@ -167,55 +167,55 @@ $$
     <button onclick="toggleCode()">Show Code</button>
 
     <div id="code-block" style="display: none;">
-     <pre><code>
-            import numpy as np
-            import matplotlib.pyplot as plt
+<pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
 
-            # Constants
-            g = 9.81  # gravity (m/s^2)
-            v0 = 30   # initial velocity (m/s)
-            h = 0     # launch height (m)
-            angles = np.radians(np.linspace(0, 90, 100))  # angles in radians
+# Constants
+g = 9.81  # gravity (m/s^2)
+v0 = 30   # initial velocity (m/s)
+h = 0     # launch height (m)
+angles = np.radians(np.linspace(0, 90, 100))  # angles in radians
 
-            def compute_range(theta, v0, g, h=0):
-            sin_theta = np.sin(theta)
-            cos_theta = np.cos(theta)
-            if h == 0:
-            t_flight = 2 * v0 * sin_theta / g
-            else:
-            discriminant = (v0 * sin_theta)**2 + 2 * g * h
-            t_flight = (v0 * sin_theta + np.sqrt(discriminant)) / g
-            return v0 * cos_theta * t_flight
+def compute_range(theta, v0, g, h=0):
+sin_theta = np.sin(theta)
+cos_theta = np.cos(theta)
+if h == 0:
+t_flight = 2 * v0 * sin_theta / g
+else:
+discriminant = (v0 * sin_theta)**2 + 2 * g * h
+t_flight = (v0 * sin_theta + np.sqrt(discriminant)) / g
+return v0 * cos_theta * t_flight
 
-            ranges = np.array([compute_range(theta, v0, g, h) for theta in angles])
+ranges = np.array([compute_range(theta, v0, g, h) for theta in angles])
 
-            # Plot Range vs Angle
-            plt.figure(figsize=(10, 6))
-            plt.plot(np.degrees(angles), ranges)
-            plt.title('Range vs. Angle of Projection')
-            plt.xlabel('Angle (degrees)')
-            plt.ylabel('Range (m)')
-            plt.grid(True)
-            plt.savefig("range_vs_angle.png")
-            plt.show()
+# Plot Range vs Angle
+plt.figure(figsize=(10, 6))
+plt.plot(np.degrees(angles), ranges)
+plt.title('Range vs. Angle of Projection')
+plt.xlabel('Angle (degrees)')
+plt.ylabel('Range (m)')
+plt.grid(True)
+plt.savefig("range_vs_angle.png")
+plt.show()
 
-            # Plot Trajectories
-            plt.figure(figsize=(10, 6))
-            for theta_deg in [15, 30, 45, 60, 75]:
-            theta = np.radians(theta_deg)
-            t_max = compute_range(theta, v0, g, h) / (v0 * np.cos(theta))
-            t = np.linspace(0, t_max, num=200)
-            x = v0 * np.cos(theta) * t
-            y = h + v0 * np.sin(theta) * t - 0.5 * g * t**2
-            plt.plot(x, y, label=f'{theta_deg}°')
+# Plot Trajectories
+plt.figure(figsize=(10, 6))
+for theta_deg in [15, 30, 45, 60, 75]:
+theta = np.radians(theta_deg)
+t_max = compute_range(theta, v0, g, h) / (v0 * np.cos(theta))
+t = np.linspace(0, t_max, num=200)
+x = v0 * np.cos(theta) * t
+y = h + v0 * np.sin(theta) * t - 0.5 * g * t**2
+plt.plot(x, y, label=f'{theta_deg}°')
 
-            plt.title('Projectile Trajectories for Various Angles')
-            plt.xlabel('Horizontal Distance (m)')
-            plt.ylabel('Vertical Height (m)')
-            plt.legend()
-            plt.grid(True)
-            plt.savefig("trajectories.png")
-            plt.show()
+plt.title('Projectile Trajectories for Various Angles')
+plt.xlabel('Horizontal Distance (m)')
+plt.ylabel('Vertical Height (m)')
+plt.legend()
+plt.grid(True)
+plt.savefig("trajectories.png")
+plt.show()
         </pre></code>
     </div>
 
