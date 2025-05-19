@@ -204,6 +204,7 @@ plt.show()
 
 </body>
 
+
 - **Angular Displacement vs Time** – shows how the angle evolves over time under periodic forcing. Illustrates the evolution of the pendulum under different forcing conditions.
 
 ![Angular Displacement vs Time](https://github.com/user-attachments/assets/9656903e-4efc-40ed-bce1-bd12f6ddf635)
