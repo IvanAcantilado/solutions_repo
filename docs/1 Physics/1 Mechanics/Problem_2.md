@@ -1,7 +1,5 @@
 # Investigating the Dynamics of a Forced Damped Pendulum
 
-## 1. Introduction
-
 The forced damped pendulum serves as a powerful example in classical mechanics for studying the behavior of nonlinear dynamical systems. When a pendulum is subject to both damping (e.g., friction or air resistance) and an external periodic driving force, its motion is governed by a rich and intricate set of dynamics that go far beyond simple harmonic motion. These include resonance, quasiperiodicity, bifurcations, and deterministic chaos.
 
 By analyzing this system, we gain deeper insight into a wide array of real-world phenomena—from the vibrations of mechanical structures and energy harvesting systems to signal filtering in electronic circuits and biological rhythms. This study leverages both analytical approximations and computational simulations to explore the effects of varying system parameters on the behavior of the pendulum.
