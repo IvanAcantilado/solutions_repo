@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Measuring Earth's Gravitational Acceleration with a Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Measuring Earth\u0027s Gravitational Acceleration with a Pendulum";
         var mkdocs_page_input_path = "1 Physics/7 Measurements/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -90,8 +90,50 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">7 Measurements</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#theoretical-background">Theoretical Background</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#equation-for-a-simple-pendulum">Equation for a simple pendulum:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pendulum-experiment-data">Pendulum Experiment Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calculations">Calculations</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#determine-the-period-of-one-oscillation">Determine the Period of One Oscillation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#determine-the-uncertainty-in-the-period">Determine the Uncertainty in the Period</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#determination-of-gravitational-acceleration-and-uncertainty-analysis">Determination of Gravitational Acceleration and Uncertainty Analysis</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#propagation-of-uncertainties">Propagation of Uncertainties</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis">Analysis</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-with-standard-gravitational-acceleration">Comparison with Standard Gravitational Acceleration</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-measurement-resolution-on-delta-l">Effect of Measurement Resolution on \(\Delta L\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#variability-in-timing-and-its-impact-on-delta-t">Variability in Timing and Its Impact on \(\Delta T\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#assumptions-and-experimental-limitations">Assumptions and Experimental Limitations</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uncertainty-and-their-impact">Uncertainty and Their Impact</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#human-error">Human Error</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#resolution-of-measuring-instruments">Resolution of Measuring Instruments</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#timing">Timing</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +205,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">7 Measurements</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Measuring Earth's Gravitational Acceleration with a Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +213,206 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<h4 id="equation-for-a-simple-pendulum">Equation for a simple pendulum:</h4>
+<div class="arithmatex">\[
+T = 2\pi \sqrt{\frac{L}{g}}
+\]</div>
+<p>Rearranged to solve for <span class="arithmatex">\(g\)</span>:</p>
+<div class="arithmatex">\[
+g = \frac{4 \pi^2 L}{T^2}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span>: Period of the pendulum (seconds)  </li>
+<li><span class="arithmatex">\(L\)</span>: Length from pivot to the center of mass (meters)  </li>
+<li><span class="arithmatex">\(g\)</span>: Acceleration due to gravity (m/s²)</li>
+</ul>
+<h3 id="pendulum-experiment-data">Pendulum Experiment Data</h3>
+<table>
+<thead>
+<tr>
+<th>L (m)</th>
+<th>ΔL (m)</th>
+<th>T₁₀ (s)</th>
+<th>σT (s)</th>
+<th>ΔT (s)</th>
+<th>g (m/s²)</th>
+<th>Δg (m/s²)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.000</td>
+<td>0.0005</td>
+<td>20.12</td>
+<td>0.027</td>
+<td>0.0085</td>
+<td>9.75</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>1.000</td>
+<td>0.0005</td>
+<td>20.15</td>
+<td>0.031</td>
+<td>0.0098</td>
+<td>9.72</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>1.500</td>
+<td>0.0005</td>
+<td>25.18</td>
+<td>0.033</td>
+<td>0.0104</td>
+<td>9.34</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>1.500</td>
+<td>0.0005</td>
+<td>25.14</td>
+<td>0.029</td>
+<td>0.0091</td>
+<td>9.37</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>1.200</td>
+<td>0.0005</td>
+<td>22.14</td>
+<td>0.027</td>
+<td>0.0085</td>
+<td>9.66</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>1.200</td>
+<td>0.0005</td>
+<td>22.19</td>
+<td>0.030</td>
+<td>0.0094</td>
+<td>9.62</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>1.800</td>
+<td>0.0005</td>
+<td>27.35</td>
+<td>0.027</td>
+<td>0.0085</td>
+<td>9.50</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>1.800</td>
+<td>0.0005</td>
+<td>27.31</td>
+<td>0.029</td>
+<td>0.0091</td>
+<td>9.53</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>2.000</td>
+<td>0.0005</td>
+<td>29.25</td>
+<td>0.031</td>
+<td>0.0098</td>
+<td>9.23</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>2.000</td>
+<td>0.0005</td>
+<td>29.28</td>
+<td>0.027</td>
+<td>0.0085</td>
+<td>9.21</td>
+<td>0.07</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="calculations">Calculations</h2>
+<h4 id="determine-the-period-of-one-oscillation">Determine the Period of One Oscillation</h4>
+<p>The period <span class="arithmatex">\(T\)</span> of a single oscillation is calculated by dividing the mean time for 10 oscillations by 10:</p>
+<div class="arithmatex">\[
+T = \frac{T_{10}}{10}
+\]</div>
+<h4 id="determine-the-uncertainty-in-the-period">Determine the Uncertainty in the Period</h4>
+<p>The uncertainty in the period, <span class="arithmatex">\(\Delta T\)</span>, is obtained by dividing the uncertainty in the mean time for 10 oscillations by 10:</p>
+<div class="arithmatex">\[
+\Delta T = \frac{\Delta T_{10}}{10}
+\]</div>
+<p><em>These values of <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(\Delta T\)</span> will be used in the next step to compute the gravitational acceleration and analyze uncertainty propagation.</em></p>
+<h4 id="determination-of-gravitational-acceleration-and-uncertainty-analysis">Determination of Gravitational Acceleration and Uncertainty Analysis</h4>
+<p>The acceleration due to gravity, <span class="arithmatex">\(g\)</span>, is calculated using the formula:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(L\)</span>: Length of the pendulum (in meters)  </li>
+<li><span class="arithmatex">\(T\)</span>: Period of one oscillation (in seconds)</li>
+</ul>
+<h4 id="propagation-of-uncertainties">Propagation of Uncertainties</h4>
+<p>To determine the uncertainty in <span class="arithmatex">\(g\)</span>, denoted <span class="arithmatex">\(\Delta g\)</span>, we use the standard propagation of error formula. Since <span class="arithmatex">\(g\)</span> depends on both <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(T\)</span>:</p>
+<div class="arithmatex">\[
+\frac{\Delta g}{g} = \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \cdot \frac{\Delta T}{T} \right)^2 }
+\]</div>
+<p>Therefore, the absolute uncertainty in <span class="arithmatex">\(g\)</span> is:</p>
+<div class="arithmatex">\[
+\Delta g = g \cdot \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \cdot \frac{\Delta T}{T} \right)^2 }
+\]</div>
+<p>Final result:</p>
+<div class="arithmatex">\[
+g = (\text{value} \pm \Delta g)\ \text{m/s}^2
+\]</div>
+<hr/>
+<h2 id="analysis">Analysis</h2>
+<h3 id="comparison-with-standard-gravitational-acceleration">Comparison with Standard Gravitational Acceleration</h3>
+<p>The standard accepted value for gravitational acceleration at Earth's surface is:</p>
+<div class="arithmatex">\[
+g_{\text{standard}} = 9.81\ \text{m/s}^2
+\]</div>
+<p>Compare your experimentally determined value of <span class="arithmatex">\(g\)</span> with this standard by calculating the percent error:</p>
+<div class="arithmatex">\[
+\text{Percent Error} = \left| \frac{g_{\text{measured}} - g_{\text{standard}}}{g_{\text{standard}}} \right| \times 100\%
+\]</div>
+<p>If the measured value lies within the range <span class="arithmatex">\(g_{\text{standard}} \pm \Delta g\)</span>, the result is considered consistent within experimental uncertainty.</p>
+<p>If not, consider possible sources of discrepancy, such as:</p>
+<ul>
+<li>Reaction time delays in manual timing  </li>
+<li>Inaccurate length measurement (e.g., not measuring to the center of mass)  </li>
+<li>Air resistance or large angular displacements violating the small-angle approximation  </li>
+<li>Non-rigid support allowing unwanted motion</li>
+</ul>
+<h3 id="effect-of-measurement-resolution-on-delta-l">Effect of Measurement Resolution on <span class="arithmatex">\(\Delta L\)</span></h3>
+<p>The resolution of the measuring tool (e.g., ruler) directly determines the uncertainty in length, <span class="arithmatex">\(\Delta L\)</span>. For example, a 1 mm resolution yields:</p>
+<div class="arithmatex">\[
+\Delta L = \pm 0.5\,\text{mm}
+\]</div>
+<p>This propagates into the final value of <span class="arithmatex">\(g\)</span>, though it has a smaller effect compared to timing uncertainty due to <span class="arithmatex">\(g\)</span>’s direct (not squared) dependence on <span class="arithmatex">\(L\)</span>.</p>
+<h3 id="variability-in-timing-and-its-impact-on-delta-t">Variability in Timing and Its Impact on <span class="arithmatex">\(\Delta T\)</span></h3>
+<p>Human reaction time introduces variability in timing measurements. Since <span class="arithmatex">\(T\)</span> appears squared in the formula for <span class="arithmatex">\(g\)</span>, even small uncertainties can significantly affect the result. Repeated measurements and statistical analysis help mitigate this impact.</p>
+<h3 id="assumptions-and-experimental-limitations">Assumptions and Experimental Limitations</h3>
+<ul>
+<li><strong>Small-Angle Approximation</strong>: Valid only for angles &lt;15°. Larger angles introduce systematic errors.  </li>
+<li><strong>Negligible Air Resistance</strong>: Assumes damping is insignificant.  </li>
+<li><strong>Rigid Support and Frictionless Pivot</strong>: Idealized conditions that may not fully apply.  </li>
+<li><strong>Point Mass and Massless String</strong>: Simplified model; real systems deviate slightly.</li>
+</ul>
+<hr/>
+<h2 id="uncertainty-and-their-impact">Uncertainty and Their Impact</h2>
+<h3 id="human-error">Human Error</h3>
+<p>Introduces both random and systematic uncertainties. These increase <span class="arithmatex">\(\sigma_T\)</span> and consequently <span class="arithmatex">\(\Delta T\)</span>, which leads to greater <span class="arithmatex">\(\Delta g\)</span>.</p>
+<h3 id="resolution-of-measuring-instruments">Resolution of Measuring Instruments</h3>
+<p>Directly affects uncertainties in <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(T_{10}\)</span>, propagating through to <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(g\)</span>.</p>
+<h3 id="timing">Timing</h3>
+<p>Since <span class="arithmatex">\(g\)</span> depends on <span class="arithmatex">\(T^2\)</span>, timing errors have an amplified impact on the uncertainty in <span class="arithmatex">\(g\)</span>.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
