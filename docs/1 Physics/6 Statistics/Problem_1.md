@@ -83,9 +83,9 @@ $$
 \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
 $$
 
-- $ \bar{x} $ is the sample mean  
-- $ n $ is the sample size  
-- $ x_i $ are the individual data values in the sample  
+- $\bar{x}$ is the sample mean  
+- $n$ is the sample size  
+- $x_i$ are the individual data values in the sample  
 
 ![image](https://github.com/user-attachments/assets/343705a6-71a4-43bf-9957-97813e859bd1)
 
@@ -116,8 +116,8 @@ This demonstrates the **Central Limit Theorem**: as sample size increases, the s
   $$
   \text{Standard Error} = \frac{\sigma}{\sqrt{n}}
   $$  
-  - $ \sigma $: population standard deviation  
-  - $ n $: sample size  
+  - $\sigma$: population standard deviation  
+  - $n$: sample size  
 
 **Higher variance** in the population = wider sampling distributions, even as the shape becomes normal.
 
