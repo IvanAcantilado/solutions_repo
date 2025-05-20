@@ -6,7 +6,7 @@ $$\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}$$
 
 governs the behavior of charged particles in the presence of electric and magnetic fields. It is a cornerstone concept in **plasma physics**, **astrophysics**, and **particle accelerator technology**. Through simulation, we can gain a visual and intuitive understanding of how charged particles move under the influence of these fields.
 
-### Exploration of Applications
+## Exploration of Applications
 
 **Key Systems:**
 
@@ -20,7 +20,7 @@ governs the behavior of charged particles in the presence of electric and magnet
 - **Magnetic Fields** $\vec{B}$: Change direction, creating circular or helical motion.
 - Crossed fields can induce drift velocities and lead to phenomena like $\vec{E} \times \vec{B}$ drift.
 
-### Simulating Particle Motion
+## Simulating Particle Motion
 
 Numerically simulate the motion of a charged particle under various electromagnetic field configurations.
 
@@ -41,7 +41,7 @@ Numerically simulate the motion of a charged particle under various electromagne
 - Produces a **drift velocity**: $\vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}$
 - Important for **magnetron motion** and behavior in **Hall effect**.
 
-### Parameter Exploration
+## Parameter Exploration
 
 **Field Strength (E and B):**
 - The strength of the magnetic field **B** will directly impact the radius of the motion of the particle. A stronger **B** leads to a smaller radius of motion.
@@ -227,7 +227,7 @@ By varying field strengths, initial velocities, charge, and mass, we observe:
 - Trajectory shape and speed heavily influenced by $\frac{q}{m}$  
 - **Direction reversal** when charge flips
 
-## Task #4: Visualization
+## Visualization
 
 Show particle motion under various field configurations using **clear, labeled plots**. Emphasize key features such as:
 
