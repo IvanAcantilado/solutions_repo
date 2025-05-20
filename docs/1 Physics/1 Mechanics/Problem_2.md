@@ -17,6 +17,7 @@ $$
 $$
 
 Where:
+
 - $\theta(t)$: angular displacement,
 - $b$: damping coefficient,
 - $g$: gravitational acceleration,
