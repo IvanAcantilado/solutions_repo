@@ -185,7 +185,7 @@ Numerically simulate the motion of a charged particle under various electromagne
     </script>
 </body>
 
-**What We Expect to Learn**
+
 
 **Field Strengths ($\vec{E}, \vec{B}$)**
 
@@ -218,8 +218,6 @@ Numerically simulate the motion of a charged particle under various electromagne
 | **$q$**                | $1 \rightarrow -1$               | Reverse rotation direction       |
 | **$m$**                | $1 \rightarrow 0.1$              | Faster spirals (lighter particle)|
 
-**Parameter Exploration of the Lorentz Force**
-
 By varying field strengths, initial velocities, charge, and mass, we observe:
 
 - Circular or helical motion under **magnetic fields**  
@@ -227,4 +225,59 @@ By varying field strengths, initial velocities, charge, and mass, we observe:
 - Trajectory shape and speed heavily influenced by $\frac{q}{m}$  
 - **Direction reversal** when charge flips
 
+## Task #4: Visualization
+
+Show particle motion under various field configurations using **clear, labeled plots**. Emphasize key features such as:
+
+- **Larmor radius**: Radius of circular motion in a magnetic field  
+- **Drift velocity**: Constant velocity **perpendicular to both** $\vec{E}$ and $\vec{B}$
+
+---
+
+
+**Larmor Radius**  
+The radius of circular motion in a magnetic field:
+
+$$
+r_L = \frac{m v_\perp}{|q| B}
+$$
+
+- $v_\perp$: component of velocity perpendicular to $\vec{B}$  
+- $B$: magnetic field magnitude  
+- $q$: particle charge  
+- $m$: particle mass
+
+**Drift Velocity** (for crossed $\vec{E} \times \vec{B}$ fields):
+
+$$
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+$$
+
+- This velocity is **independent of charge and mass**  
+- Direction is **perpendicular** to both $\vec{E}$ and $\vec{B}$
+
+---
+
+**2D Plot** (e.g., x-y plane):
+
+![2D View Crossed E B Fields](https://github.com/user-attachments/assets/6f708a64-7638-4a5d-ad6c-4105bcf76857)
+
+- Shows **circular motion** plus **drift**
+- **Larmor radius** indicated as a **dashed circle**
+- **Drift velocity** shown with an **arrow**
+
+**3D Plot**:
+
+![3D View Trajectory under E B Fields](https://github.com/user-attachments/assets/8637e599-0e3c-48cb-b029-6f0cd18c6bd4)
+
+- Displays **full trajectory** (helical or linear drift)  
+- Vector arrows for $\vec{E}$ and $\vec{B}$ for reference  
+- Visualizes how fields influence particle path in space
+
+---
+
+- A charged particle follows a **helical or drift path** depending on the field configuration  
+- **Larmor radius** determines the size of the circular motion in a magnetic field  
+- In crossed $\vec{E} \times \vec{B}$ fields, the particle **drifts at constant speed perpendicular** to both fields  
+- These visuals help explain **energy transfer and particle control** in devices like **mass spectrometers** and **plasma traps**
 
