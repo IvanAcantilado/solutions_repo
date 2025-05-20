@@ -39,7 +39,7 @@ For this, we will choose **Square** as our polygon.
 
 $$
 \begin{aligned}
-\eta_1(x, y, t) &= \frac{1}{\sqrt{(x+2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y-2)^2} - \omega t + \phi \right) \\
+\eta_(x, y, t) &= \frac{1}{\sqrt{(x+2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y-2)^2} - \omega t + \phi \right) \\
 \end{aligned}
 $$
 
