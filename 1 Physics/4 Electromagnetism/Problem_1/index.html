@@ -217,143 +217,203 @@
 <p><strong>Charge and Mass of the Particle (q and m):</strong>
 - The charge <strong>q</strong> affects the force exerted on the particle by the magnetic field. A greater charge leads to a larger Lorentz force, influencing the radius of the motion.
 - The mass <strong>m</strong> of the particle determines the inertia of the particle, and thus, a heavier particle will have a larger radius of motion under the same field strength and velocity.</p>
-<p><strong>Python Code</strong></p>
-<pre><code class="language-python">
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+<p><head>
+<meta charset="utf-8"/>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head></p>
+<body>
+<div class="slider-group" id="sliders"></div>
+<div id="plot" style="width: 100%; height: 80vh;"></div>
+<script>
+        const sliderDefs = [
+            { id: 'q', label: 'Charge (q)', min: -2, max: 2, step: 0.1, value: 1 },
+            { id: 'm', label: 'Mass (m)', min: 0.1, max: 5, step: 0.1, value: 1 },
+            { id: 'Ex', label: 'E_x', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'Ey', label: 'E_y', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'Ez', label: 'E_z', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'Bx', label: 'B_x', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'By', label: 'B_y', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'Bz', label: 'B_z', min: -2, max: 2, step: 0.1, value: 1 },
+            { id: 'vx', label: 'v_x', min: -2, max: 2, step: 0.1, value: 1 },
+            { id: 'vy', label: 'v_y', min: -2, max: 2, step: 0.1, value: 0 },
+            { id: 'vz', label: 'v_z', min: -2, max: 2, step: 0.1, value: 0 }
+        ];
 
-# Constants
-q = 1.0       # Charge (C)
-m = 1.0       # Mass (kg)
-B = np.array([0, 0, 1.0])  # Magnetic field (T)
-E = np.array([0, 0, 0])    # Electric field (V/m)
+        const sliders = {};
+        const slidersDiv = document.getElementById('sliders');
 
-# Initial conditions
-v0 = np.array([1.0, 0.0, 0.5])  # Initial velocity (m/s)
-r0 = np.array([0.0, 0.0, 0.0])  # Initial position (m)
+        sliderDefs.forEach(def => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'slider';
 
-# Simulation parameters
-dt = 0.01  # Time step (s)
-T = 20     # Total time (s)
-N = int(T / dt)
+            const label = document.createElement('label');
+            label.innerText = def.label;
 
-# Arrays to store position and velocity
-r = np.zeros((N, 3))
-v = np.zeros((N, 3))
-r[0] = r0
-v[0] = v0
+            const input = document.createElement('input');
+            input.type = 'range';
+            input.min = def.min;
+            input.max = def.max;
+            input.step = def.step;
+            input.value = def.value;
+            input.id = def.id;
 
-# Boris algorithm for integrating motion in E and B fields
-def boris_push(v, r, q, m, E, B, dt):
-    t = (q * B / m) * (dt / 2)
-    s = 2 * t / (1 + np.dot(t, t))
-    v_minus = v + (q * E / m) * (dt / 2)
-    v_prime = v_minus + np.cross(v_minus, t)
-    v_plus = v_minus + np.cross(v_prime, s)
-    v_new = v_plus + (q * E / m) * (dt / 2)
-    r_new = r + v_new * dt
-    return v_new, r_new
+            const valueDisplay = document.createElement('span');
+            valueDisplay.innerText = ` ${input.value}`;
 
-# Simulate motion
-for i in range(1, N):
-    v[i], r[i] = boris_push(v[i-1], r[i-1], q, m, E, B, dt)
+            input.oninput = () => {
+                valueDisplay.innerText = ` ${input.value}`;
+                plotTrajectory();  // update on slider change
+            };
 
-# Plotting the trajectory in 3D and 2D
-fig = plt.figure(figsize=(14, 6))
+            wrapper.appendChild(label);
+            wrapper.appendChild(input);
+            wrapper.appendChild(valueDisplay);
+            slidersDiv.appendChild(wrapper);
 
-# 3D trajectory
-ax = fig.add_subplot(121, projection='3d')
-ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Trajectory', color='orange')
-ax.set_title('3D Trajectory (Helical Motion)')
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.legend()
+            sliders[def.id] = input;
+        });
 
-# 2D projection
-ax2 = fig.add_subplot(122)
-ax2.plot(r[:, 0], r[:, 1], label='XY Projection', color='orange')
-ax2.set_title('2D Projection (Top View)')
-ax2.set_xlabel('X')
-ax2.set_ylabel('Y')
-ax2.axis('equal')
-ax2.legend()
+        function simulateParticle(q, m, E, B, v0, r0 = [0, 0, 0], dt = 0.01, steps = 1000) {
+            let r = Array(steps).fill().map(() => [0, 0, 0]);
+            let v = Array(steps).fill().map(() => [0, 0, 0]);
+            r[0] = [...r0];
+            v[0] = [...v0];
 
-plt.tight_layout()
-plt.show()
-</code></pre>
-<p><img alt="image" src="https://github.com/user-attachments/assets/ef16ebc4-85b7-4ba5-ab6e-2baa1e0e757a"/>
-<img alt="image" src="https://github.com/user-attachments/assets/3c92c261-ad98-4e76-86da-f97d0acea338"/></p>
-<p>The simulation shows a charged particle's helical motion in a uniform magnetic field. The 3D plot displays a spiral trajectory caused by circular motion in the XY-plane (due to the Lorentz force) combined with linear motion along the Z-axis. The 2D plot highlights the circular component of this motion.<br/>
-Key features include the <strong>Larmor radius</strong> (circular path size) and the <strong>helix pitch</strong>, reflecting the particle's velocity components perpendicular and parallel to the magnetic field.</p>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+            const cross = (a, b) => [
+                a[1] * b[2] - a[2] * b[1],
+                a[2] * b[0] - a[0] * b[2],
+                a[0] * b[1] - a[1] * b[0]
+            ];
 
-# Constants for circular motion (v ⊥ B)
-q = 1.0       # Charge (C)
-m = 1.0       # Mass (kg)
-B = np.array([0, 0, 1.0])  # Magnetic field (T)
-E = np.array([0, 0, 0])    # Electric field (V/m)
+            for (let i = 1; i < steps; i++) {
+                const crossVB = cross(v[i - 1], B);
+                const F = E.map((Ei, j) => q * (Ei + crossVB[j]));
+                const a = F.map(f => f / m);
+                v[i] = v[i - 1].map((vi, j) => vi + a[j] * dt);
+                r[i] = r[i - 1].map((ri, j) => ri + v[i][j] * dt);
+            }
 
-# Initial conditions: velocity entirely perpendicular to B
-v0 = np.array([1.0, 0.0, 0.0])  # No z-component
-r0 = np.array([0.0, 0.0, 0.0])  # Starting at origin
+            return r;
+        }
 
-# Simulation parameters
-dt = 0.01  # Time step (s)
-T = 20     # Total time (s)
-N = int(T / dt)
+        function plotTrajectory() {
+            const q = parseFloat(sliders.q.value);
+            const m = parseFloat(sliders.m.value);
+            const E = [parseFloat(sliders.Ex.value), parseFloat(sliders.Ey.value), parseFloat(sliders.Ez.value)];
+            const B = [parseFloat(sliders.Bx.value), parseFloat(sliders.By.value), parseFloat(sliders.Bz.value)];
+            const v0 = [parseFloat(sliders.vx.value), parseFloat(sliders.vy.value), parseFloat(sliders.vz.value)];
 
-# Arrays to store position and velocity
-r = np.zeros((N, 3))
-v = np.zeros((N, 3))
-r[0] = r0
-v[0] = v0
+            const r = simulateParticle(q, m, E, B, v0);
+            const x = r.map(p => p[0]);
+            const y = r.map(p => p[1]);
+            const z = r.map(p => p[2]);
 
-# Boris algorithm for integrating motion
-def boris_push(v, r, q, m, E, B, dt):
-    t = (q * B / m) * (dt / 2)
-    s = 2 * t / (1 + np.dot(t, t))
-    v_minus = v + (q * E / m) * (dt / 2)
-    v_prime = v_minus + np.cross(v_minus, t)
-    v_plus = v_minus + np.cross(v_prime, s)
-    v_new = v_plus + (q * E / m) * (dt / 2)
-    r_new = r + v_new * dt
-    return v_new, r_new
+            const trace = {
+                x, y, z,
+                type: 'scatter3d',
+                mode: 'lines',
+                name: 'Trajectory',
+                line: { width: 4 }
+            };
 
-# Simulate motion
-for i in range(1, N):
-    v[i], r[i] = boris_push(v[i-1], r[i-1], q, m, E, B, dt)
+            const start = {
+                x: [x[0]], y: [y[0]], z: [z[0]],
+                type: 'scatter3d',
+                mode: 'markers',
+                marker: { size: 5, color: 'green' },
+                name: 'Start'
+            };
 
-# Plotting the trajectory in 3D and 2D
-fig = plt.figure(figsize=(14, 6))
+            const end = {
+                x: [x[x.length - 1]], y: [y[y.length - 1]], z: [z[z.length - 1]],
+                type: 'scatter3d',
+                mode: 'markers',
+                marker: { size: 5, color: 'red' },
+                name: 'End'
+            };
 
-# 3D trajectory
-ax = fig.add_subplot(121, projection='3d')
-ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Trajectory', color='blue')
-ax.set_title('3D Trajectory (Circular Motion)')
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.legend()
+            const layout = {
+                title: `Lorentz Force (q=${q}, m=${m})`,
+                scene: {
+                    xaxis: { title: 'X' },
+                    yaxis: { title: 'Y' },
+                    zaxis: { title: 'Z' }
+                },
+                margin: { l: 0, r: 0, t: 40, b: 0 }
+            };
 
-# 2D projection
-ax2 = fig.add_subplot(122)
-ax2.plot(r[:, 0], r[:, 1], label='XY Projection', color='blue')
-ax2.set_title('2D Projection (Top View)')
-ax2.set_xlabel('X')
-ax2.set_ylabel('Y')
-ax2.axis('equal')
-ax2.legend()
+            Plotly.newPlot('plot', [trace, start, end], layout);
+        }
 
-plt.tight_layout()
-plt.show()
-</code></pre>
-<p><img alt="image" src="https://github.com/user-attachments/assets/94ee6df1-2659-4769-a677-17771c9ae0bf"/></p>
-<p>This shows the particle confined to the XY-plane with a constant radius circular path. The Z-coordinate remains at zero throughout, which is consistent with a velocity entirely perpendicular to the magnetic field directed along the Z-axis.<br/>
-These plots visualize the fundamental physics of <strong>cyclotron motion</strong>, where the particle revolves at a constant <strong>cyclotron frequency</strong> with a radius known as the <strong>Larmor radius</strong>.</p>
+        plotTrajectory(); // initial plot
+    </script>
+</body>
+<p><strong>What We Expect to Learn</strong></p>
+<p><strong>Field Strengths (<span class="arithmatex">\(\vec{E}, \vec{B}\)</span>)</strong></p>
+<ul>
+<li><strong>Stronger <span class="arithmatex">\(\vec{B}\)</span></strong> → tighter spirals (smaller radius, faster cycles)  </li>
+<li><strong>Stronger <span class="arithmatex">\(\vec{E}\)</span></strong> → more acceleration/drift  </li>
+</ul>
+<p><strong>Initial Velocity (<span class="arithmatex">\(\vec{v}_0\)</span>)</strong></p>
+<ul>
+<li>Controls direction and shape of trajectory  </li>
+<li>Component <strong>perpendicular to <span class="arithmatex">\(\vec{B}\)</span></strong> → circular motion  </li>
+<li>Component <strong>parallel to <span class="arithmatex">\(\vec{B}\)</span></strong> → helical motion  </li>
+</ul>
+<p><strong>Charge (<span class="arithmatex">\(q\)</span>) and Mass (<span class="arithmatex">\(m\)</span>)</strong></p>
+<ul>
+<li>Affects acceleration:<br/>
+  $$ 
+  \vec{a} = \frac{q}{m} \left( \vec{E} + \vec{v} \times \vec{B} \right) 
+  $$</li>
+<li>Heavier particles → move more slowly, spiral wider  </li>
+</ul>
+<hr/>
+<p><strong>Suggested Variations to Try</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Try Changing From</th>
+<th>Expected Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><span class="arithmatex">\(\vec{B}\)</span></strong></td>
+<td><span class="arithmatex">\([0, 0, 1] \rightarrow [0, 0, 2]\)</span></td>
+<td>Tighter spirals</td>
+</tr>
+<tr>
+<td><strong><span class="arithmatex">\(\vec{E}\)</span></strong></td>
+<td><span class="arithmatex">\([0.5, 0, 0] \rightarrow [0, 0, 1]\)</span></td>
+<td>Helical → Accelerated spiral</td>
+</tr>
+<tr>
+<td><strong><span class="arithmatex">\(\vec{v}_0\)</span></strong></td>
+<td><span class="arithmatex">\([1, 0, 0] \rightarrow [0, 0, 1]\)</span></td>
+<td>Circular → Linear motion</td>
+</tr>
+<tr>
+<td><strong><span class="arithmatex">\(q\)</span></strong></td>
+<td><span class="arithmatex">\(1 \rightarrow -1\)</span></td>
+<td>Reverse rotation direction</td>
+</tr>
+<tr>
+<td><strong><span class="arithmatex">\(m\)</span></strong></td>
+<td><span class="arithmatex">\(1 \rightarrow 0.1\)</span></td>
+<td>Faster spirals (lighter particle)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameter Exploration of the Lorentz Force</strong></p>
+<p>By varying field strengths, initial velocities, charge, and mass, we observe:</p>
+<ul>
+<li>Circular or helical motion under <strong>magnetic fields</strong> </li>
+<li>Acceleration or drift under <strong>electric fields</strong> </li>
+<li>Trajectory shape and speed heavily influenced by <span class="arithmatex">\(\frac{q}{m}\)</span> </li>
+<li><strong>Direction reversal</strong> when charge flips</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
