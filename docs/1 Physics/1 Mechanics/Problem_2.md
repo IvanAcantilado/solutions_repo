@@ -60,7 +60,8 @@ where: $\beta = \frac{b}{2}$ and $\omega_d = \sqrt{\omega_0^2 - \beta^2}$
   $$
   \theta_{\text{part}}(t) = \Theta \cos(\omega t - \delta)
   $$
-  where:
+  
+where:
 
   $$
   \Theta = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + (2\beta\omega)^2}}, \quad \tan\delta = \frac{2\beta\omega}{\omega_0^2 - \omega^2}
