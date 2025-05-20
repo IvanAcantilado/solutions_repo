@@ -38,12 +38,7 @@ For this, we will choose **Square** as our polygon.
 **Individual Wave Equations:**
 
 $$
-\begin{aligned}
-\eta_1(x, y, t) &= \frac{1}{\sqrt{(x+2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y-2)^2} - \omega t + \phi \right) \\
-\eta_2(x, y, t) &= \frac{1}{\sqrt{(x-2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x-2)^2 + (y-2)^2} - \omega t + \phi \right) \\
-\eta_3(x, y, t) &= \frac{1}{\sqrt{(x-2)^2 + (y+2)^2}} \cdot A \cos\left(k \sqrt{(x-2)^2 + (y+2)^2} - \omega t + \phi \right) \\
-\eta_4(x, y, t) &= \frac{1}{\sqrt{(x+2)^2 + (y+2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y+2)^2} - \omega t + \phi \right)
-\end{aligned}
+\eta(x, y, t) &= \frac{1}{\sqrt{(x+2)^2 + (y-2)^2}} \cdot A \cos\left(k \sqrt{(x+2)^2 + (y-2)^2} - \omega t + \phi \right) \
 $$
 
 **Superposition:**
