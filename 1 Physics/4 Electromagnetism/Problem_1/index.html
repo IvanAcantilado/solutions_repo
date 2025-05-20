@@ -78,6 +78,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#parameter-exploration">Parameter Exploration</a>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#task-4-visualization">Task #4: Visualization</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -348,7 +350,6 @@
         plotTrajectory(); // initial plot
     </script>
 </body>
-<p><strong>What We Expect to Learn</strong></p>
 <p><strong>Field Strengths (<span class="arithmatex">\(\vec{E}, \vec{B}\)</span>)</strong></p>
 <ul>
 <li><strong>Stronger <span class="arithmatex">\(\vec{B}\)</span></strong> → tighter spirals (smaller radius, faster cycles)  </li>
@@ -406,13 +407,60 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Parameter Exploration of the Lorentz Force</strong></p>
 <p>By varying field strengths, initial velocities, charge, and mass, we observe:</p>
 <ul>
 <li>Circular or helical motion under <strong>magnetic fields</strong> </li>
 <li>Acceleration or drift under <strong>electric fields</strong> </li>
 <li>Trajectory shape and speed heavily influenced by <span class="arithmatex">\(\frac{q}{m}\)</span> </li>
 <li><strong>Direction reversal</strong> when charge flips</li>
+</ul>
+<h2 id="task-4-visualization">Task #4: Visualization</h2>
+<p>Show particle motion under various field configurations using <strong>clear, labeled plots</strong>. Emphasize key features such as:</p>
+<ul>
+<li><strong>Larmor radius</strong>: Radius of circular motion in a magnetic field  </li>
+<li><strong>Drift velocity</strong>: Constant velocity <strong>perpendicular to both</strong> <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span></li>
+</ul>
+<hr/>
+<p><strong>Larmor Radius</strong><br/>
+The radius of circular motion in a magnetic field:</p>
+<div class="arithmatex">\[
+r_L = \frac{m v_\perp}{|q| B}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(v_\perp\)</span>: component of velocity perpendicular to <span class="arithmatex">\(\vec{B}\)</span> </li>
+<li><span class="arithmatex">\(B\)</span>: magnetic field magnitude  </li>
+<li><span class="arithmatex">\(q\)</span>: particle charge  </li>
+<li><span class="arithmatex">\(m\)</span>: particle mass</li>
+</ul>
+<p><strong>Drift Velocity</strong> (for crossed <span class="arithmatex">\(\vec{E} \times \vec{B}\)</span> fields):</p>
+<div class="arithmatex">\[
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+\]</div>
+<ul>
+<li>This velocity is <strong>independent of charge and mass</strong> </li>
+<li>Direction is <strong>perpendicular</strong> to both <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span></li>
+</ul>
+<hr/>
+<p><strong>2D Plot</strong> (e.g., x-y plane):</p>
+<p><img alt="2D View Crossed E B Fields" src="https://github.com/user-attachments/assets/6f708a64-7638-4a5d-ad6c-4105bcf76857"/></p>
+<ul>
+<li>Shows <strong>circular motion</strong> plus <strong>drift</strong></li>
+<li><strong>Larmor radius</strong> indicated as a <strong>dashed circle</strong></li>
+<li><strong>Drift velocity</strong> shown with an <strong>arrow</strong></li>
+</ul>
+<p><strong>3D Plot</strong>:</p>
+<p><img alt="3D View Trajectory under E B Fields" src="https://github.com/user-attachments/assets/8637e599-0e3c-48cb-b029-6f0cd18c6bd4"/></p>
+<ul>
+<li>Displays <strong>full trajectory</strong> (helical or linear drift)  </li>
+<li>Vector arrows for <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span> for reference  </li>
+<li>Visualizes how fields influence particle path in space</li>
+</ul>
+<hr/>
+<ul>
+<li>A charged particle follows a <strong>helical or drift path</strong> depending on the field configuration  </li>
+<li><strong>Larmor radius</strong> determines the size of the circular motion in a magnetic field  </li>
+<li>In crossed <span class="arithmatex">\(\vec{E} \times \vec{B}\)</span> fields, the particle <strong>drifts at constant speed perpendicular</strong> to both fields  </li>
+<li>These visuals help explain <strong>energy transfer and particle control</strong> in devices like <strong>mass spectrometers</strong> and <strong>plasma traps</strong></li>
 </ul>
 </div>
 </div><footer>
