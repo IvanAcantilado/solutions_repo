@@ -54,6 +54,19 @@ Numerically simulate the motion of a charged particle under various electromagne
 - The charge **q** affects the force exerted on the particle by the magnetic field. A greater charge leads to a larger Lorentz force, influencing the radius of the motion.
 - The mass **m** of the particle determines the inertia of the particle, and thus, a heavier particle will have a larger radius of motion under the same field strength and velocity.
 
+---
+
+**Suggested Variations to Try**
+
+| Parameter              | Try Changing From              | Expected Effect                  |
+|------------------------|-------------------------------|----------------------------------|
+| **$\vec{B}$**          | $[0, 0, 1] \rightarrow [0, 0, 2]$ | Tighter spirals               |
+| **$\vec{E}$**          | $[0.5, 0, 0] \rightarrow [0, 0, 1]$ | Helical → Accelerated spiral |
+| **$\vec{v}_0$**        | $[1, 0, 0] \rightarrow [0, 0, 1]$ | Circular → Linear motion     |
+| **$q$**                | $1 \rightarrow -1$               | Reverse rotation direction       |
+| **$m$**                | $1 \rightarrow 0.1$              | Faster spirals (lighter particle)|
+
+
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -186,7 +199,7 @@ Numerically simulate the motion of a charged particle under various electromagne
     </script>
 </body>
 
-
+---
 
 **Field Strengths ($\vec{E}, \vec{B}$)**
 
@@ -208,16 +221,6 @@ Numerically simulate the motion of a charged particle under various electromagne
 - Heavier particles → move more slowly, spiral wider  
 
 ---
-
-**Suggested Variations to Try**
-
-| Parameter              | Try Changing From              | Expected Effect                  |
-|------------------------|-------------------------------|----------------------------------|
-| **$\vec{B}$**          | $[0, 0, 1] \rightarrow [0, 0, 2]$ | Tighter spirals               |
-| **$\vec{E}$**          | $[0.5, 0, 0] \rightarrow [0, 0, 1]$ | Helical → Accelerated spiral |
-| **$\vec{v}_0$**        | $[1, 0, 0] \rightarrow [0, 0, 1]$ | Circular → Linear motion     |
-| **$q$**                | $1 \rightarrow -1$               | Reverse rotation direction       |
-| **$m$**                | $1 \rightarrow 0.1$              | Faster spirals (lighter particle)|
 
 By varying field strengths, initial velocities, charge, and mass, we observe:
 
