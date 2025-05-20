@@ -171,7 +171,6 @@ Numerically simulate the motion of a charged particle under various electromagne
             };
 
             const layout = {
-                title: `Lorentz Force (q=${q}, m=${m})`,
                 scene: {
                     xaxis: { title: 'X' },
                     yaxis: { title: 'Y' },
