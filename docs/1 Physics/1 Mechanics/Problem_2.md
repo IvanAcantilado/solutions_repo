@@ -188,7 +188,6 @@ plt.tight_layout()
 plt.show()
         </pre></code>
     </div>
-
     <script>
         function toggleCode() {
             const codeBlock = document.getElementById("code-block");
