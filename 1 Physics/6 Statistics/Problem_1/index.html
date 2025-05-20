@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Exploring the Central Limit Theorem through simulations - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Exploring the Central Limit Theorem through simulations";
         var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -82,8 +82,16 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">6 Statistics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Exploring the Central Limit Theorem through simulations</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#simulating-sampling-distributions">Simulating Sampling Distributions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sampling-and-visualization">Sampling and Visualization</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-exploration">Parameter Exploration</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -163,7 +171,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Exploring the Central Limit Theorem through simulations</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +179,81 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="exploring-the-central-limit-theorem-through-simulations">Exploring the Central Limit Theorem through simulations</h1>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is a foundational principle in probability and statistics. It states that as the size of a sample increases, the distribution of the sample mean tends to approximate a normal distribution, no matter the shape of the original population distribution.<br/>
+This remarkable property enables statisticians to make inferences about population parameters even when the data are not normally distributed.</p>
+<h3 id="simulating-sampling-distributions">Simulating Sampling Distributions</h3>
+<p>We'll generate large populations using three types of distributions:<br/>
+To simulate the Central Limit Theorem, we must first create large datasets (populations) from which we can draw random samples.</p>
+<p><img alt="Uniform population" src="https://i.ibb.co/vxzTjht6/Uniform-population.png"/></p>
+<p>The <strong>Central Limit Theorem (CLT)</strong> shows that no matter the original distribution (here, uniform), as the sample size increases, the sampling distribution of the sample mean approximates a normal distribution.</p>
+<p><img alt="Exponential population" src="https://i.ibb.co/HfH4Mf9s/Exponential-population.png"/></p>
+<p>Despite the exponential distribution being <strong>right-skewed</strong>, the sample means normalize as the sample size increases, illustrating the <strong>CLT's</strong> power to make sampling distributions normal even from skewed populations.</p>
+<p><img alt="Binomial population" src="https://i.ibb.co/35JgDc2d/Binomial-population.png"/></p>
+<p>The <strong>CLT</strong> transforms the <strong>discrete</strong> binomial distribution into a normal distribution as the sample size increases, allowing for easier statistical analysis.</p>
+<h3 id="sampling-and-visualization">Sampling and Visualization</h3>
+<p>We will take random samples from the population and compute the sample mean for each sample.<br/>
+We'll repeat this process multiple times to create a sampling distribution for each sample size.<br/>
+We'll plot histograms of the sample means and observe how the sampling distribution approaches a normal distribution as the sample size increases.<br/>
+We will calculate the mean (average) of that sample by summing the values and dividing by the number of items in the sample.</p>
+<div class="arithmatex">\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]</div>
+<ul>
+<li>$ \bar{x} $ is the sample mean  </li>
+<li>$ n $ is the sample size  </li>
+<li>$ x_i $ are the individual data values in the sample  </li>
+</ul>
+<p><img alt="Sampling Distribution" src="https://i.ibb.co/BHMRQK68/Sampling-Distribution-of-the-Mean-for-Different-Sample-Sizes.png"/></p>
+<p>The plot shows <strong>sampling distributions</strong> of the mean for different <strong>sample sizes</strong> (5, 10, 30, 50) drawn from the same normal population.<br/>
+Each colored histogram represents the distribution of <strong>1,000 sample means</strong>, where:
+- A sample of a given size is randomly taken from the population.
+- The mean of that sample is computed.
+- This process is repeated 1,000 times to build the histogram.</p>
+<p>This demonstrates the <strong>Central Limit Theorem</strong>: as sample size increases, the sampling distribution of the mean becomes more <strong>normal and less variable</strong>, even when sampling from the same population.</p>
+<h3 id="parameter-exploration">Parameter Exploration</h3>
+<p><strong>Shape of the Original Distribution</strong><br/>
+- <strong>Normal population</strong>: The sampling distribution of the mean is normal regardless of sample size.<br/>
+- <strong>Skewed</strong> or non-normal populations (e.g., exponential, uniform):<br/>
+  - For <strong>small sample</strong> sizes, the sampling distribution retains the skewness or shape of the population.<br/>
+  - As <strong>sample size increases</strong>, the sampling distribution becomes more <strong>normal</strong>, even if the original distribution is not.</p>
+<p><strong>Sample Size</strong><br/>
+- <strong>Larger samples</strong> (e.g., <span class="arithmatex">\(n=30\)</span>, <span class="arithmatex">\(n=50\)</span>) lead to:<br/>
+  - Faster convergence to normality.<br/>
+  - Smaller standard error (i.e., narrower distribution).<br/>
+- <strong>Smaller samples</strong> (e.g., <span class="arithmatex">\(n=5\)</span>) show more variability and reflect the original population more closely.</p>
+<p><strong>Population Variance</strong><br/>
+- The <strong>spread (standard deviation)</strong> of the sampling distribution of the mean is:<br/>
+  $$
+  \text{Standard Error} = \frac{\sigma}{\sqrt{n}}
+  $$<br/>
+  - $ \sigma $: population standard deviation<br/>
+  - $ n $: sample size  </p>
+<p><strong>Higher variance</strong> in the population = wider sampling distributions, even as the shape becomes normal.</p>
+<h3 id="practical-applications">Practical Applications</h3>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is one of the most powerful concepts in statistics, with broad <strong>practical applications across many fields</strong>. Here's how it plays a vital role in real-world scenarios:</p>
+<ol>
+<li><strong>Estimating Population Parameters</strong> </li>
+<li>In surveys, medical trials, and experiments, we rarely have access to entire populations.  </li>
+<li><strong>CLT allows us to use sample means</strong> (from random samples) to estimate the population mean with known accuracy.  </li>
+<li>
+<p>It also underpins confidence intervals and hypothesis testing by assuming the sampling distribution is approximately normal when the sample size is large enough.</p>
+</li>
+<li>
+<p><strong>Quality Control in Manufacturing</strong> </p>
+</li>
+<li>In industries like electronics or pharmaceuticals, it's impractical to test every product.  </li>
+<li>Manufacturers take <strong>random samples</strong> from each production batch and use sample means to monitor consistency and detect defects.  </li>
+<li>
+<p>The CLT justifies the use of control charts (e.g., X̄ charts), because the distribution of <strong>sample means becomes normal</strong>, allowing for predictable control limits.</p>
+</li>
+<li>
+<p><strong>Predicting Outcomes in Financial Models</strong> </p>
+</li>
+<li>Finance often deals with returns from stocks, portfolios, or investments — all subject to variability.  </li>
+<li>When modeling <strong>average returns over time or over different assets</strong>, CLT supports the assumption that the <strong>average return will be normally distributed</strong>, making statistical models more reliable.  </li>
+<li>This is crucial for <strong>risk assessment</strong>, <strong>option pricing</strong>, and <strong>forecasting</strong>.</li>
+</ol>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
