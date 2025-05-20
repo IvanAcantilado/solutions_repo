@@ -9,11 +9,13 @@ governs the behavior of charged particles in the presence of electric and magnet
 ### Exploration of Applications
 
 **Key Systems:**
+
 - **Particle Accelerators**: Control and acceleration of particles using electric/magnetic fields.
 - **Mass Spectrometers**: Use magnetic deflection to separate particles by mass-to-charge ratio.
 - **Plasma Confinement Devices**: Such as tokamaks, which rely on magnetic fields to trap hot plasma.
 
 **Field Relevance:**
+
 - **Electric Fields** $\vec{E}$: Accelerate particles.
 - **Magnetic Fields** $\vec{B}$: Change direction, creating circular or helical motion.
 - Crossed fields can induce drift velocities and lead to phenomena like $\vec{E} \times \vec{B}$ drift.
