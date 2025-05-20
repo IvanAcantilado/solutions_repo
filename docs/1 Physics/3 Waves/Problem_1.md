@@ -23,7 +23,7 @@ Where:
 For $N$ point sources, the net displacement is:
 
 $$
-\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
+\eta_{\text{sum}}(x, y, t) = \displaystyle\sum_{i=1}^{N} \eta_i(x, y, t)
 $$
 
 For this, we will choose **Square** as our polygon.
