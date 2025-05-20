@@ -24,17 +24,17 @@ Numerically simulate the motion of a charged particle under various electromagne
 
 **Simulation Scenarios:**
 
-![image](https://github.com/user-attachments/assets/731e1e52-2506-4795-b979-8dbcedabe76a)
+![Uniform Magnetic Field](https://github.com/user-attachments/assets/d457b78b-a17b-48b6-a1fb-07c42e36993c)
 
 - Expect circular motion (if velocity is perpendicular to $\vec{B}$) or **helical** (if there's a component along $\vec{B}$).
 - Demonstrates cyclotron motion and introduces the concept of **Larmor radius** and **cyclotron frequency**.
 
-![image](https://github.com/user-attachments/assets/f15af851-73a9-4ef0-95c9-ca24a454b417)
+![Uniform Magnetic Field](https://github.com/user-attachments/assets/09490a9e-0bfe-453c-a230-b6817ce9e175)
 
 - Non-trivial motion—often helical with drift.
 - Depending on vector orientation, the particle can accelerate, spiral, or follow curved paths.
 
-![image](https://github.com/user-attachments/assets/de06c814-c144-4a25-a102-1d8126d128bd)
+![Crossed E B Fields](https://github.com/user-attachments/assets/f4eca2fb-2d5d-4719-85bf-36a253be53bb)
 
 - Produces a **drift velocity**: $\vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}$
 - Important for **magnetron motion** and behavior in **Hall effect**.
