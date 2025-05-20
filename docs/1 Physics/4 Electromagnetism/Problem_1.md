@@ -274,7 +274,7 @@ $$
 - Vector arrows for $\vec{E}$ and $\vec{B}$ for reference  
 - Visualizes how fields influence particle path in space
 
----
+**Visualization Summary**
 
 - A charged particle follows a **helical or drift path** depending on the field configuration  
 - **Larmor radius** determines the size of the circular motion in a magnetic field  
