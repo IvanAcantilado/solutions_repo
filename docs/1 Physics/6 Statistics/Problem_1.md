@@ -8,17 +8,69 @@ This remarkable property enables statisticians to make inferences about populati
 We'll generate large populations using three types of distributions:  
 To simulate the Central Limit Theorem, we must first create large datasets (populations) from which we can draw random samples.
 
-![Uniform population](https://i.ibb.co/vxzTjht6/Uniform-population.png)
+![image](https://github.com/user-attachments/assets/7d39b39f-bd1f-4839-b1ca-5c16b9284f9c)
 
 The **Central Limit Theorem (CLT)** shows that no matter the original distribution (here, uniform), as the sample size increases, the sampling distribution of the sample mean approximates a normal distribution.
 
-![Exponential population](https://i.ibb.co/HfH4Mf9s/Exponential-population.png)
+![image](https://github.com/user-attachments/assets/b6e44cd8-60dc-4dc2-a585-4266122a027c)
 
 Despite the exponential distribution being **right-skewed**, the sample means normalize as the sample size increases, illustrating the **CLT's** power to make sampling distributions normal even from skewed populations.
 
-![Binomial population](https://i.ibb.co/35JgDc2d/Binomial-population.png)
+![image](https://github.com/user-attachments/assets/4daddfb7-9bee-4366-8ade-0c982dd7f095)
 
 The **CLT** transforms the **discrete** binomial distribution into a normal distribution as the sample size increases, allowing for easier statistical analysis.
+
+<pre><code>
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# For reproducibility
+np.random.seed(42)
+
+# Step 1: Define population size
+N = 100000  # A large sample to represent the population
+
+# Step 2: Generate different types of populations
+
+# 1. Uniform distribution (values between 0 and 1)
+uniform_pop = np.random.uniform(low=0, high=1, size=N)
+
+# 2. Exponential distribution (scale = 1)
+exponential_pop = np.random.exponential(scale=1.0, size=N)
+
+# 3. Binomial distribution (n=10 trials, p=0.5 success probability)
+binomial_pop = np.random.binomial(n=10, p=0.5, size=N)
+
+# Step 3: Create a dictionary for easier iteration
+populations = {
+    'Uniform': uniform_pop,
+    'Exponential': exponential_pop,
+    'Binomial': binomial_pop
+}
+
+# Step 4: Set the style and color palette
+sns.set(style="whitegrid")  # Sets background style for better readability
+palette = sns.color_palette("viridis", as_cmap=True)  # Smooth color map for better aesthetics
+
+# Step 5: Plot each population distribution and save individually
+for i, (name, data) in enumerate(populations.items()):
+    # Create the plot for each population
+    plt.figure(figsize=(8, 6))  # Adjust figure size
+    sns.histplot(data, bins=50, stat='density', color=palette(i / 3), linewidth=1.5)
+    
+    # Customize the plot
+    plt.title(f'{name} Population', fontsize=14, weight='bold')
+    plt.xlabel('Value', fontsize=12)
+    plt.ylabel('Density', fontsize=12)
+    plt.grid(True, linestyle='--', alpha=0.6)
+
+    # Save the plot to a PNG file
+    plt.tight_layout()
+    plt.savefig(f"{name}_population.png")  # Save each plot as a separate file
+    plt.close()  # Close the figure to prevent overlap in the next plot
+
+print("Plots saved successfully!")
+</code></pre>
 
 ### Sampling and Visualization
 
@@ -35,7 +87,7 @@ $$
 - $ n $ is the sample size  
 - $ x_i $ are the individual data values in the sample  
 
-![Sampling Distribution](https://i.ibb.co/BHMRQK68/Sampling-Distribution-of-the-Mean-for-Different-Sample-Sizes.png)
+![image](https://github.com/user-attachments/assets/343705a6-71a4-43bf-9957-97813e859bd1)
 
 The plot shows **sampling distributions** of the mean for different **sample sizes** (5, 10, 30, 50) drawn from the same normal population.  
 Each colored histogram represents the distribution of **1,000 sample means**, where:
