@@ -53,7 +53,8 @@ $$
   $$
   \theta_{\text{hom}}(t) = C e^{-\beta t} \cos(\omega_d t + \phi)
   $$
-  where $\beta = \frac{b}{2}$ and $\omega_d = \sqrt{\omega_0^2 - \beta^2}$
+  
+where: $\beta = \frac{b}{2}$ and $\omega_d = \sqrt{\omega_0^2 - \beta^2}$
 
 - Steady-state response:
   $$
