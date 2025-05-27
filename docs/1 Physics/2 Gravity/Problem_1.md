@@ -1,4 +1,4 @@
-# Orbital Period and Orbital Radius
+# Orbital Period and Orbital Radius  
 
 The orbital period refers to the time a body takes to complete one full orbit around another object, such as the Earth orbiting the Sun or a moon orbiting a planet. This period is typically measured in units of time, such as seconds, days, or years, and depends on the mass of the central object and the distance between the two bodies.
 
