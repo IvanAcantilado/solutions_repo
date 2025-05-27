@@ -224,7 +224,7 @@ x(t) = v_0 \cos \theta \cdot t
 <div class="arithmatex">\[
 y(t) = v_0 \sin \theta \cdot t - \frac{1}{2} g t^2
 \]</div>
-<p>Here:<br/>
+<p>Where:<br/>
 - <span class="arithmatex">\(v_0\)</span> is the initial velocity,<br/>
 - <span class="arithmatex">\(\theta\)</span> is the angle of projection,<br/>
 - <span class="arithmatex">\(g\)</span> is the acceleration due to gravity,<br/>
@@ -292,7 +292,6 @@ y(t) = h + v_0 \sin \theta \cdot t - \frac{1}{2} g t^2 = 0
 R(\theta) = v_0 \cos \theta \cdot t_{\text{flight}}
 \]</div>
 <p>where <span class="arithmatex">\(t_{\text{flight}}\)</span> is the positive root of the above quadratic.</p>
-<p>Graphs illustrating these effects help visualize how the range curve shifts and scales when parameters change.</p>
 <hr/>
 <h2 id="practical-applications">Practical Applications</h2>
 <p>The idealized projectile model can be adapted or extended to more realistic situations:</p>
@@ -308,7 +307,7 @@ R(\theta) = v_0 \cos \theta \cdot t_{\text{flight}}
 <hr/>
 <h2 id="implementation">Implementation</h2>
 <h3 id="computational-simulation">Computational Simulation</h3>
-<p>Develop a Python program to simulate projectile motion and analyze the range:</p>
+<p>Develop a Python code to simulate projectile motion and analyze the range:</p>
 <ul>
 <li>Input parameters: initial velocity <span class="arithmatex">\(v_0\)</span>, angle <span class="arithmatex">\(\theta\)</span>, gravitational acceleration <span class="arithmatex">\(g\)</span>, and launch height <span class="arithmatex">\(h\)</span>.</li>
 <li>Calculate the time of flight by solving <span class="arithmatex">\(y(t) = 0\)</span> (for <span class="arithmatex">\(h \neq 0\)</span>, solve quadratic numerically).</li>
