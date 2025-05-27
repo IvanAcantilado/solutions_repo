@@ -25,7 +25,7 @@ $$
 y(t) = v_0 \sin \theta \cdot t - \frac{1}{2} g t^2
 $$
 
-Here:  
+Where:  
 - $v_0$ is the initial velocity,  
 - $\theta$ is the angle of projection,  
 - $g$ is the acceleration due to gravity,  
@@ -122,8 +122,6 @@ $$
 
 where $t_{\text{flight}}$ is the positive root of the above quadratic.
 
-Graphs illustrating these effects help visualize how the range curve shifts and scales when parameters change.
-
 ---
 
 ## Practical Applications
@@ -145,7 +143,7 @@ These real-world factors motivate expanding the model beyond simple analytic sol
 
 ### Computational Simulation
 
-Develop a Python program to simulate projectile motion and analyze the range:
+Develop a Python code to simulate projectile motion and analyze the range:
 
 - Input parameters: initial velocity $v_0$, angle $\theta$, gravitational acceleration $g$, and launch height $h$.
 - Calculate the time of flight by solving $y(t) = 0$ (for $h \neq 0$, solve quadratic numerically).
