@@ -20,7 +20,7 @@ $$
 
 Where:
 
-- $G$ is the gravitational constant,
+- $G$ is the gravitational constant
 - $v$ is the orbital speed.
 
 Canceling $m$ and multiplying both sides by $r$:
