@@ -30,28 +30,6 @@ Where:
 - $g$ is the acceleration due to gravity,  
 - $t$ is the time.
 
-These are solutions to the second-order differential equations:
-
-$$
-\frac{d^2 x}{dt^2} = 0 \quad \text{(no horizontal acceleration)}
-$$
-
-$$
-\frac{d^2 y}{dt^2} = -g \quad \text{(constant vertical acceleration)}
-$$
-
-Solving these gives the first derivatives:
-
-$$
-\frac{dx}{dt} = v_0 \cos \theta
-$$
-
-$$
-\frac{dy}{dt} = v_0 \sin \theta - g t
-$$
-
-Integrating with respect to time yields the position functions given above.
-
 ---
 
 ### Range as a Function of Angle
